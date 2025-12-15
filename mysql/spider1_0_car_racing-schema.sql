@@ -18,7 +18,9 @@
 --
 -- Table structure for table `Country`
 --
-
+DROP TABLE IF EXISTS `Team_Driver`;
+DROP TABLE IF EXISTS `Team`;
+DROP TABLE IF EXISTS `Driver`;
 DROP TABLE IF EXISTS `Country`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -36,7 +38,7 @@ CREATE TABLE `Country` (
 -- Table structure for table `Driver`
 --
 
-DROP TABLE IF EXISTS `Driver`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Driver` (
@@ -46,7 +48,7 @@ CREATE TABLE `Driver` (
   `Age` int DEFAULT NULL,
   `Car_#` double DEFAULT NULL,
   `Make` text COLLATE utf8mb4_general_ci,
-  `Points` text COLLATE utf8mb4_general_ci,
+  `Points` INT,
   `Laps` double DEFAULT NULL,
   `Winnings` text COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`Driver_ID`),
@@ -59,7 +61,7 @@ CREATE TABLE `Driver` (
 -- Table structure for table `Team`
 --
 
-DROP TABLE IF EXISTS `Team`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Team` (
@@ -77,7 +79,7 @@ CREATE TABLE `Team` (
 -- Table structure for table `Team_Driver`
 --
 
-DROP TABLE IF EXISTS `Team_Driver`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Team_Driver` (

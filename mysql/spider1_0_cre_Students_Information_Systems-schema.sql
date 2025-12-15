@@ -15,6 +15,126 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+--
+-- Table structure for table `Addresses`
+--
+
+DROP TABLE IF EXISTS `Addresses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Addresses` (
+  `address_id` int NOT NULL AUTO_INCREMENT,
+  `address_details` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`address_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `Teachers`
+--
+
+DROP TABLE IF EXISTS `Teachers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Teachers` (
+  `teacher_id` int NOT NULL AUTO_INCREMENT,
+  `teacher_details` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`teacher_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=317 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `Students`
+--
+
+DROP TABLE IF EXISTS `Students`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Students` (
+  `student_id` int NOT NULL AUTO_INCREMENT,
+  `bio_data` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `student_details` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`student_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=985 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `Ref_Achievement_Type`
+--
+
+DROP TABLE IF EXISTS `Ref_Achievement_Type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Ref_Achievement_Type` (
+  `achievement_type_code` char(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `achievement_type_description` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`achievement_type_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `Behaviour_Monitoring`
+--
+
+DROP TABLE IF EXISTS `Behaviour_Monitoring`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Behaviour_Monitoring` (
+  `behaviour_monitoring_id` int NOT NULL AUTO_INCREMENT,
+  `student_id` int NOT NULL,
+  `behaviour_monitoring_details` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`behaviour_monitoring_id`),
+  KEY `Behaviour_Monitoring_FK_0_0` (`student_id`),
+  CONSTRAINT `Behaviour_Monitoring_FK_0_0` FOREIGN KEY (`student_id`) REFERENCES `Students` (`student_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=995 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+--
+-- Table structure for table `Ref_Address_Types`
+--
+
+DROP TABLE IF EXISTS `Ref_Address_Types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Ref_Address_Types` (
+  `address_type_code` char(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `address_type_description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`address_type_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `Ref_Detention_Type`
+--
+
+DROP TABLE IF EXISTS `Ref_Detention_Type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Ref_Detention_Type` (
+  `detention_type_code` char(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `detention_type_description` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`detention_type_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+--
+-- Table structure for table `Ref_Event_Types`
+--
+
+DROP TABLE IF EXISTS `Ref_Event_Types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Ref_Event_Types` (
+  `event_type_code` char(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `event_type_description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`event_type_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 --
 -- Table structure for table `Achievements`
 --
@@ -38,34 +158,43 @@ CREATE TABLE `Achievements` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `Addresses`
+-- Table structure for table `Student_Events`
 --
 
-DROP TABLE IF EXISTS `Addresses`;
+DROP TABLE IF EXISTS `Student_Events`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Addresses` (
-  `address_id` int NOT NULL AUTO_INCREMENT,
-  `address_details` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`address_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `Student_Events` (
+  `event_id` int NOT NULL AUTO_INCREMENT,
+  `event_type_code` char(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `student_id` int NOT NULL,
+  `event_date` datetime(3) DEFAULT NULL,
+  `other_details` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`event_id`),
+  KEY `Student_Events_FK_0_0` (`event_type_code`),
+  KEY `Student_Events_FK_1_0` (`student_id`),
+  CONSTRAINT `Student_Events_FK_0_0` FOREIGN KEY (`event_type_code`) REFERENCES `Ref_Event_Types` (`event_type_code`),
+  CONSTRAINT `Student_Events_FK_1_0` FOREIGN KEY (`student_id`) REFERENCES `Students` (`student_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=228 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `Behaviour_Monitoring`
+-- Table structure for table `Student_Loans`
 --
 
-DROP TABLE IF EXISTS `Behaviour_Monitoring`;
+DROP TABLE IF EXISTS `Student_Loans`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Behaviour_Monitoring` (
-  `behaviour_monitoring_id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `Student_Loans` (
+  `student_loan_id` int NOT NULL AUTO_INCREMENT,
   `student_id` int NOT NULL,
-  `behaviour_monitoring_details` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`behaviour_monitoring_id`),
-  KEY `Behaviour_Monitoring_FK_0_0` (`student_id`),
-  CONSTRAINT `Behaviour_Monitoring_FK_0_0` FOREIGN KEY (`student_id`) REFERENCES `Students` (`student_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=995 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `date_of_loan` datetime(3) DEFAULT NULL,
+  `amount_of_loan` decimal(15,4) DEFAULT NULL,
+  `other_details` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`student_loan_id`),
+  KEY `Student_Loans_FK_0_0` (`student_id`),
+  CONSTRAINT `Student_Loans_FK_0_0` FOREIGN KEY (`student_id`) REFERENCES `Students` (`student_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=966 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,117 +241,6 @@ CREATE TABLE `Detention` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `Ref_Achievement_Type`
---
-
-DROP TABLE IF EXISTS `Ref_Achievement_Type`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Ref_Achievement_Type` (
-  `achievement_type_code` char(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `achievement_type_description` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`achievement_type_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Ref_Address_Types`
---
-
-DROP TABLE IF EXISTS `Ref_Address_Types`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Ref_Address_Types` (
-  `address_type_code` char(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `address_type_description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`address_type_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Ref_Detention_Type`
---
-
-DROP TABLE IF EXISTS `Ref_Detention_Type`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Ref_Detention_Type` (
-  `detention_type_code` char(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `detention_type_description` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`detention_type_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Ref_Event_Types`
---
-
-DROP TABLE IF EXISTS `Ref_Event_Types`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Ref_Event_Types` (
-  `event_type_code` char(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `event_type_description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`event_type_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Student_Events`
---
-
-DROP TABLE IF EXISTS `Student_Events`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Student_Events` (
-  `event_id` int NOT NULL AUTO_INCREMENT,
-  `event_type_code` char(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `student_id` int NOT NULL,
-  `event_date` datetime(3) DEFAULT NULL,
-  `other_details` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`event_id`),
-  KEY `Student_Events_FK_0_0` (`event_type_code`),
-  KEY `Student_Events_FK_1_0` (`student_id`),
-  CONSTRAINT `Student_Events_FK_0_0` FOREIGN KEY (`event_type_code`) REFERENCES `Ref_Event_Types` (`event_type_code`),
-  CONSTRAINT `Student_Events_FK_1_0` FOREIGN KEY (`student_id`) REFERENCES `Students` (`student_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=228 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Student_Loans`
---
-
-DROP TABLE IF EXISTS `Student_Loans`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Student_Loans` (
-  `student_loan_id` int NOT NULL AUTO_INCREMENT,
-  `student_id` int NOT NULL,
-  `date_of_loan` datetime(3) DEFAULT NULL,
-  `amount_of_loan` decimal(15,4) DEFAULT NULL,
-  `other_details` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`student_loan_id`),
-  KEY `Student_Loans_FK_0_0` (`student_id`),
-  CONSTRAINT `Student_Loans_FK_0_0` FOREIGN KEY (`student_id`) REFERENCES `Students` (`student_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=966 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Students`
---
-
-DROP TABLE IF EXISTS `Students`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Students` (
-  `student_id` int NOT NULL AUTO_INCREMENT,
-  `bio_data` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `student_details` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`student_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=985 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `Students_Addresses`
 --
 
@@ -246,19 +264,6 @@ CREATE TABLE `Students_Addresses` (
 ) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `Teachers`
---
-
-DROP TABLE IF EXISTS `Teachers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Teachers` (
-  `teacher_id` int NOT NULL AUTO_INCREMENT,
-  `teacher_details` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`teacher_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=317 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Transcripts`

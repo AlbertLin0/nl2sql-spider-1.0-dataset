@@ -18,7 +18,8 @@
 --
 -- Table structure for table `Boats`
 --
-
+DROP TABLE IF EXISTS `Reserves`;
+DROP TABLE IF EXISTS `Sailors`;
 DROP TABLE IF EXISTS `Boats`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -30,11 +31,26 @@ CREATE TABLE `Boats` (
 ) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+--
+-- Table structure for table `Sailors`
+--
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Sailors` (
+  `sid` int NOT NULL AUTO_INCREMENT,
+  `name` text COLLATE utf8mb4_general_ci,
+  `rating` int DEFAULT NULL,
+  `age` int DEFAULT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Table structure for table `Reserves`
 --
 
-DROP TABLE IF EXISTS `Reserves`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Reserves` (
@@ -48,20 +64,7 @@ CREATE TABLE `Reserves` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `Sailors`
---
 
-DROP TABLE IF EXISTS `Sailors`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Sailors` (
-  `sid` int NOT NULL AUTO_INCREMENT,
-  `name` text COLLATE utf8mb4_general_ci,
-  `rating` int DEFAULT NULL,
-  `age` int DEFAULT NULL,
-  PRIMARY KEY (`sid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

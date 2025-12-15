@@ -18,7 +18,19 @@
 --
 -- Table structure for table `Boxes`
 --
+--
+-- Table structure for table `Warehouses`
+--
 
+DROP TABLE IF EXISTS `Warehouses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Warehouses` (
+  `Code` int NOT NULL AUTO_INCREMENT,
+  `Location` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `Capacity` int NOT NULL,
+  PRIMARY KEY (`Code`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 DROP TABLE IF EXISTS `Boxes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -33,19 +45,7 @@ CREATE TABLE `Boxes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `Warehouses`
---
 
-DROP TABLE IF EXISTS `Warehouses`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Warehouses` (
-  `Code` int NOT NULL AUTO_INCREMENT,
-  `Location` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `Capacity` int NOT NULL,
-  PRIMARY KEY (`Code`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

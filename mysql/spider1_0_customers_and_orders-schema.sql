@@ -28,24 +28,20 @@ CREATE TABLE `Addresses` (
   PRIMARY KEY (`address_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
 --
--- Table structure for table `Customer_Orders`
+-- Table structure for table `Products`
 --
 
-DROP TABLE IF EXISTS `Customer_Orders`;
+DROP TABLE IF EXISTS `Products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Customer_Orders` (
-  `order_id` int NOT NULL AUTO_INCREMENT,
-  `customer_id` int NOT NULL,
-  `order_date` datetime NOT NULL,
-  `order_status_code` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`order_id`),
-  KEY `Customer_Orders_FK_0_0` (`customer_id`),
-  CONSTRAINT `Customer_Orders_FK_0_0` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`customer_id`)
+CREATE TABLE `Products` (
+  `product_id` int NOT NULL AUTO_INCREMENT,
+  `product_type_code` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `product_name` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `product_price` double DEFAULT NULL,
+  PRIMARY KEY (`product_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Customers`
@@ -65,6 +61,26 @@ CREATE TABLE `Customers` (
   `customer_email` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Table structure for table `Customer_Orders`
+--
+
+DROP TABLE IF EXISTS `Customer_Orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Customer_Orders` (
+  `order_id` int NOT NULL AUTO_INCREMENT,
+  `customer_id` int NOT NULL,
+  `order_date` datetime NOT NULL,
+  `order_status_code` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`order_id`),
+  KEY `Customer_Orders_FK_0_0` (`customer_id`),
+  CONSTRAINT `Customer_Orders_FK_0_0` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`customer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,20 +102,7 @@ CREATE TABLE `Order_Items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `Products`
---
 
-DROP TABLE IF EXISTS `Products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Products` (
-  `product_id` int NOT NULL AUTO_INCREMENT,
-  `product_type_code` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `product_name` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `product_price` double DEFAULT NULL,
-  PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

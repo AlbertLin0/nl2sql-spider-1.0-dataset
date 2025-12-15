@@ -18,7 +18,7 @@
 --
 -- Table structure for table `District`
 --
-
+DROP TABLE IF EXISTS `Spokesman_District`;
 DROP TABLE IF EXISTS `District`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -55,7 +55,7 @@ CREATE TABLE `Spokesman` (
 -- Table structure for table `Spokesman_District`
 --
 
-DROP TABLE IF EXISTS `Spokesman_District`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Spokesman_District` (

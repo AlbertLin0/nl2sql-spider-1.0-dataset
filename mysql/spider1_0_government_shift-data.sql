@@ -19,11 +19,6 @@
 -- Dumping data for table `Analytical_Layer`
 --
 
-LOCK TABLES `Analytical_Layer` WRITE;
-/*!40000 ALTER TABLE `Analytical_Layer` DISABLE KEYS */;
-INSERT INTO `Analytical_Layer` VALUES (11,123,'Normal','Bottom'),(12,203,'Normal','Bottom'),(17,677,'Normal','Middle'),(32,677,'Normal','Middle'),(36,123,'Normal','Middle'),(39,766,'Normal','Top'),(41,606,'Normal','Top'),(48,475,'Normal','Top'),(58,123,'Special','Top'),(60,228,'Normal','Top'),(66,823,'Normal','Bottom'),(68,680,'Normal','Bottom'),(72,465,'Special','Bottom'),(77,123,'Special','Bottom'),(82,420,'Special','Bottom');
-/*!40000 ALTER TABLE `Analytical_Layer` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Dumping data for table `Channels`
@@ -34,10 +29,29 @@ LOCK TABLES `Channels` WRITE;
 INSERT INTO `Channels` VALUES (16,'15 ij'),(45,'75 ww'),(55,'92 ve'),(65,'40 zy'),(78,'13 ik');
 /*!40000 ALTER TABLE `Channels` ENABLE KEYS */;
 UNLOCK TABLES;
-
+LOCK TABLES `Services` WRITE;
+/*!40000 ALTER TABLE `Services` DISABLE KEYS */;
+INSERT INTO `Services` VALUES (313,'driving license'),(430,'broker license'),(457,'dog license'),(575,'building permit'),(606,'liquor license'),(620,'library card'),(828,'working permit');
+/*!40000 ALTER TABLE `Services` ENABLE KEYS */;
+UNLOCK TABLES;
 --
 -- Dumping data for table `Customer_Interactions`
 --
+LOCK TABLES `Customers` WRITE;
+/*!40000 ALTER TABLE `Customers` DISABLE KEYS */;
+INSERT INTO `Customers` VALUES (12,'Amalia Johnston'),(32,'Miss Annamarie Lowe'),(78,'Miss Alexandra Kemmer MD'),(93,'Agustina Stoltenberg'),(98,'Dr. Jessyca Roob'),(103,'Hardy Kutch'),(113,'Vicky Keeling'),(119,'Verdie Stehr'),(173,'Dr. Rupert Lind'),(212,'Flo Crooks'),(217,'Baron Gottlieb'),(256,'Delores Fahey'),(286,'Sterling Spencer'),(293,'Mr. Rollin Jakubowski'),(295,'Mr. Kraig Mohr');
+/*!40000 ALTER TABLE `Customers` ENABLE KEYS */;
+UNLOCK TABLES;
+LOCK TABLES `Customers_And_Services` WRITE;
+/*!40000 ALTER TABLE `Customers_And_Services` DISABLE KEYS */;
+INSERT INTO `Customers_And_Services` VALUES (123,12,313,'Satisfied'),(130,12,620,'Satisfied'),(203,93,828,'Satisfied'),(228,286,430,'Satisfied'),(350,113,313,'Satisfied'),(420,113,575,'Satisfied'),(428,103,575,'Unsatisfied'),(465,217,457,'Unsatisfied'),(475,78,575,'Unsatisfied'),(606,256,828,'Unsatisfied'),(669,293,457,'Unsatisfied'),(677,103,313,'Unsatisfied'),(680,113,430,'Satisfied'),(683,119,828,'Unsatisfied'),(759,93,620,'Satisfied'),(766,103,620,'Unsatisfied'),(795,173,606,'Satisfied'),(823,286,575,'Unsatisfied'),(972,212,430,'Unsatisfied'),(983,98,620,'Satisfied');
+/*!40000 ALTER TABLE `Customers_And_Services` ENABLE KEYS */;
+UNLOCK TABLES;
+LOCK TABLES `Analytical_Layer` WRITE;
+/*!40000 ALTER TABLE `Analytical_Layer` DISABLE KEYS */;
+INSERT INTO `Analytical_Layer` VALUES (11,123,'Normal','Bottom'),(12,203,'Normal','Bottom'),(17,677,'Normal','Middle'),(32,677,'Normal','Middle'),(36,123,'Normal','Middle'),(39,766,'Normal','Top'),(41,606,'Normal','Top'),(48,475,'Normal','Top'),(58,123,'Special','Top'),(60,228,'Normal','Top'),(66,823,'Normal','Bottom'),(68,680,'Normal','Bottom'),(72,465,'Special','Bottom'),(77,123,'Special','Bottom'),(82,420,'Special','Bottom');
+/*!40000 ALTER TABLE `Analytical_Layer` ENABLE KEYS */;
+UNLOCK TABLES;
 
 LOCK TABLES `Customer_Interactions` WRITE;
 /*!40000 ALTER TABLE `Customer_Interactions` DISABLE KEYS */;
@@ -49,21 +63,13 @@ UNLOCK TABLES;
 -- Dumping data for table `Customers`
 --
 
-LOCK TABLES `Customers` WRITE;
-/*!40000 ALTER TABLE `Customers` DISABLE KEYS */;
-INSERT INTO `Customers` VALUES (12,'Amalia Johnston'),(32,'Miss Annamarie Lowe'),(78,'Miss Alexandra Kemmer MD'),(93,'Agustina Stoltenberg'),(98,'Dr. Jessyca Roob'),(103,'Hardy Kutch'),(113,'Vicky Keeling'),(119,'Verdie Stehr'),(173,'Dr. Rupert Lind'),(212,'Flo Crooks'),(217,'Baron Gottlieb'),(256,'Delores Fahey'),(286,'Sterling Spencer'),(293,'Mr. Rollin Jakubowski'),(295,'Mr. Kraig Mohr');
-/*!40000 ALTER TABLE `Customers` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `Customers_And_Services`
 --
 
-LOCK TABLES `Customers_And_Services` WRITE;
-/*!40000 ALTER TABLE `Customers_And_Services` DISABLE KEYS */;
-INSERT INTO `Customers_And_Services` VALUES (123,12,313,'Satisfied'),(130,12,620,'Satisfied'),(203,93,828,'Satisfied'),(228,286,430,'Satisfied'),(350,113,313,'Satisfied'),(420,113,575,'Satisfied'),(428,103,575,'Unsatisfied'),(465,217,457,'Unsatisfied'),(475,78,575,'Unsatisfied'),(606,256,828,'Unsatisfied'),(669,293,457,'Unsatisfied'),(677,103,313,'Unsatisfied'),(680,113,430,'Satisfied'),(683,119,828,'Unsatisfied'),(759,93,620,'Satisfied'),(766,103,620,'Unsatisfied'),(795,173,606,'Satisfied'),(823,286,575,'Unsatisfied'),(972,212,430,'Unsatisfied'),(983,98,620,'Satisfied');
-/*!40000 ALTER TABLE `Customers_And_Services` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `Integration_Platform`
@@ -79,11 +85,7 @@ UNLOCK TABLES;
 -- Dumping data for table `Services`
 --
 
-LOCK TABLES `Services` WRITE;
-/*!40000 ALTER TABLE `Services` DISABLE KEYS */;
-INSERT INTO `Services` VALUES (313,'driving license'),(430,'broker license'),(457,'dog license'),(575,'building permit'),(606,'liquor license'),(620,'library card'),(828,'working permit');
-/*!40000 ALTER TABLE `Services` ENABLE KEYS */;
-UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

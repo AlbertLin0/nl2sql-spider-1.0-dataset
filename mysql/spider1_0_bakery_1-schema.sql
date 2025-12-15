@@ -18,7 +18,8 @@
 --
 -- Table structure for table `Customers`
 --
-
+DROP TABLE IF EXISTS `Receipts`;
+DROP TABLE IF EXISTS `Items`;
 DROP TABLE IF EXISTS `Customers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -50,7 +51,7 @@ CREATE TABLE `Goods` (
 -- Table structure for table `Items`
 --
 
-DROP TABLE IF EXISTS `Items`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Items` (
@@ -67,7 +68,7 @@ CREATE TABLE `Items` (
 -- Table structure for table `Receipts`
 --
 
-DROP TABLE IF EXISTS `Receipts`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Receipts` (

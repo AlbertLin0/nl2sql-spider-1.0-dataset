@@ -14,7 +14,20 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
+--
+-- Table structure for table `Press`
+--
+DROP TABLE IF EXISTS `Book`;
+DROP TABLE IF EXISTS `Press`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Press` (
+  `Press_ID` int NOT NULL AUTO_INCREMENT,
+  `Name` text COLLATE utf8mb4_general_ci,
+  `Month_Profits_billion` double DEFAULT NULL,
+  `Year_Profits_billion` double DEFAULT NULL,
+  PRIMARY KEY (`Press_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Table structure for table `Author`
 --
@@ -35,7 +48,7 @@ CREATE TABLE `Author` (
 -- Table structure for table `Book`
 --
 
-DROP TABLE IF EXISTS `Book`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Book` (
@@ -54,20 +67,7 @@ CREATE TABLE `Book` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `Press`
---
 
-DROP TABLE IF EXISTS `Press`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Press` (
-  `Press_ID` int NOT NULL AUTO_INCREMENT,
-  `Name` text COLLATE utf8mb4_general_ci,
-  `Month_Profits_billion` double DEFAULT NULL,
-  `Year_Profits_billion` double DEFAULT NULL,
-  PRIMARY KEY (`Press_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

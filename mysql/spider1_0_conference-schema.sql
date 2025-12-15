@@ -18,7 +18,8 @@
 --
 -- Table structure for table `Conference`
 --
-
+DROP TABLE IF EXISTS `Conference_Participation`;
+DROP TABLE IF EXISTS `Staff`;
 DROP TABLE IF EXISTS `Conference`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -35,18 +36,10 @@ CREATE TABLE `Conference` (
 -- Table structure for table `Conference_Participation`
 --
 
-DROP TABLE IF EXISTS `Conference_Participation`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Conference_Participation` (
-  `Conference_ID` int NOT NULL,
-  `staff_ID` int NOT NULL,
-  `role` text COLLATE utf8mb4_general_ci,
-  PRIMARY KEY (`Conference_ID`,`staff_ID`),
-  KEY `conference_participation_FK_1_0` (`staff_ID`),
-  CONSTRAINT `conference_participation_FK_0_0` FOREIGN KEY (`Conference_ID`) REFERENCES `Conference` (`Conference_ID`),
-  CONSTRAINT `conference_participation_FK_1_0` FOREIGN KEY (`staff_ID`) REFERENCES `Staff` (`staff_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +62,7 @@ CREATE TABLE `Institution` (
 -- Table structure for table `Staff`
 --
 
-DROP TABLE IF EXISTS `Staff`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Staff` (
@@ -82,6 +75,16 @@ CREATE TABLE `Staff` (
   KEY `staff_FK_0_0` (`Institution_ID`),
   CONSTRAINT `staff_FK_0_0` FOREIGN KEY (`Institution_ID`) REFERENCES `Institution` (`Institution_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `Conference_Participation` (
+  `Conference_ID` int NOT NULL,
+  `staff_ID` int NOT NULL,
+  `role` text COLLATE utf8mb4_general_ci,
+  PRIMARY KEY (`Conference_ID`,`staff_ID`),
+  KEY `conference_participation_FK_1_0` (`staff_ID`),
+  CONSTRAINT `conference_participation_FK_0_0` FOREIGN KEY (`Conference_ID`) REFERENCES `Conference` (`Conference_ID`),
+  CONSTRAINT `conference_participation_FK_1_0` FOREIGN KEY (`staff_ID`) REFERENCES `Staff` (`staff_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

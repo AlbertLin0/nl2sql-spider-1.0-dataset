@@ -18,7 +18,25 @@
 --
 -- Table structure for table `Addresses`
 --
-
+DROP TABLE IF EXISTS `Users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Users` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `age_category_code` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `user_category_code` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `user_address_id` int NOT NULL,
+  `is_buyer` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `is_seller` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `login_name` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `password` varchar(8) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `date_registered` datetime DEFAULT NULL,
+  `first_name` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `middle_name` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `last_name` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `other_user_details` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 DROP TABLE IF EXISTS `Addresses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -50,7 +68,51 @@ CREATE TABLE `Features` (
   PRIMARY KEY (`feature_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `Ref_Age_Categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Ref_Age_Categories` (
+  `age_category_code` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `age_category_description` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`age_category_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `Ref_Property_Types`
+--
+
+DROP TABLE IF EXISTS `Ref_Property_Types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Ref_Property_Types` (
+  `property_type_code` INT NOT NULL,
+  `property_type_description` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`property_type_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+DROP TABLE IF EXISTS `Ref_Room_Types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Ref_Room_Types` (
+  `room_type_code` INT NOT NULL,
+  `room_type_description` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`room_type_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `Ref_User_Categories`
+--
+
+DROP TABLE IF EXISTS `Ref_User_Categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Ref_User_Categories` (
+  `user_category_code` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `user_category_description` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`user_category_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Table structure for table `Properties`
 --
@@ -62,14 +124,14 @@ CREATE TABLE `Properties` (
   `property_id` int NOT NULL AUTO_INCREMENT,
   `property_address_id` int NOT NULL,
   `owner_user_id` int NOT NULL,
-  `property_type_code` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `property_type_code` INT NOT NULL,
   `date_on_market` datetime DEFAULT NULL,
   `date_off_market` datetime DEFAULT NULL,
   `property_name` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `property_description` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `garage_yn` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `parking_lots` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `room_count` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `room_count` int DEFAULT NULL,
   `vendor_requested_price` double DEFAULT NULL,
   `price_min` double DEFAULT NULL,
   `price_max` double DEFAULT NULL,
@@ -125,56 +187,12 @@ CREATE TABLE `Property_Photos` (
 -- Table structure for table `Ref_Age_Categories`
 --
 
-DROP TABLE IF EXISTS `Ref_Age_Categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Ref_Age_Categories` (
-  `age_category_code` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `age_category_description` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`age_category_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Ref_Property_Types`
---
-
-DROP TABLE IF EXISTS `Ref_Property_Types`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Ref_Property_Types` (
-  `property_type_code` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `property_type_description` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`property_type_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Ref_Room_Types`
 --
 
-DROP TABLE IF EXISTS `Ref_Room_Types`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Ref_Room_Types` (
-  `room_type_code` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `room_type_description` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`room_type_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Ref_User_Categories`
---
-
-DROP TABLE IF EXISTS `Ref_User_Categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Ref_User_Categories` (
-  `user_category_code` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `user_category_description` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`user_category_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,8 +204,8 @@ DROP TABLE IF EXISTS `Rooms`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Rooms` (
   `property_id` int NOT NULL,
-  `room_number` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `room_type_code` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `room_number` INT NOT NULL,
+  `room_type_code` INT NOT NULL,
   `room_size` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `other_room_details` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   KEY `Rooms_FK_0_0` (`room_type_code`),
@@ -236,25 +254,7 @@ CREATE TABLE `User_Searches` (
 -- Table structure for table `Users`
 --
 
-DROP TABLE IF EXISTS `Users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Users` (
-  `user_id` int NOT NULL AUTO_INCREMENT,
-  `age_category_code` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `user_category_code` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `user_address_id` int NOT NULL,
-  `is_buyer` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `is_seller` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `login_name` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `password` varchar(8) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `date_registered` datetime DEFAULT NULL,
-  `first_name` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `middle_name` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `last_name` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `other_user_details` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

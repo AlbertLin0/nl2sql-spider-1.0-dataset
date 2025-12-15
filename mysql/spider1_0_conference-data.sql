@@ -28,7 +28,17 @@ UNLOCK TABLES;
 --
 -- Dumping data for table `Conference_Participation`
 --
+LOCK TABLES `Institution` WRITE;
+/*!40000 ALTER TABLE `Institution` DISABLE KEYS */;
+INSERT INTO `Institution` VALUES (1,'Illinois State University','Normal, Illinois',1857),(2,'Bradley University','Peoria, Illinois',1897),(3,'Eureka College','Eureka, Illinois',1855),(4,'Hedding College (defunct)','Abingdon, Illinois',1855),(5,'Illinois College','Jacksonville, Illinois',1829),(6,'Illinois Wesleyan University','Bloomington, Illinois',1850),(7,'Lincoln College, Illinois','Lincoln, Illinois',1865),(8,'Lombard College (defunct)','Galesburg, Illinois',1853),(9,'Millikin University','Decatur, Illinois',1901),(10,'Shurtleff College (defunct)','Alton, Illinois',1827);
+/*!40000 ALTER TABLE `Institution` ENABLE KEYS */;
+UNLOCK TABLES;
 
+LOCK TABLES `Staff` WRITE;
+/*!40000 ALTER TABLE `Staff` DISABLE KEYS */;
+INSERT INTO `Staff` VALUES (1,'Bobby Jackson',24,'United States',1),(2,'Casey Jacobsen',23,'United States',2),(3,'Alexander Johnson',42,'United Kindom',3),(4,'Chris Johnson',34,'Canada',4),(5,'Bobby Jones',28,'United States',5),(6,'Dahntay Jones',30,'United Kindom',10),(7,'Damon Jones',41,'United Kindom',8);
+/*!40000 ALTER TABLE `Staff` ENABLE KEYS */;
+UNLOCK TABLES;
 LOCK TABLES `Conference_Participation` WRITE;
 /*!40000 ALTER TABLE `Conference_Participation` DISABLE KEYS */;
 INSERT INTO `Conference_Participation` VALUES (1,1,'Sponsor'),(1,2,'Sponsor'),(1,4,'Speaker'),(1,6,'Speaker'),(2,5,'Sponsor'),(2,7,'Speaker'),(4,5,'Participant'),(5,5,'Speaker'),(6,5,'Participant');
@@ -39,21 +49,13 @@ UNLOCK TABLES;
 -- Dumping data for table `Institution`
 --
 
-LOCK TABLES `Institution` WRITE;
-/*!40000 ALTER TABLE `Institution` DISABLE KEYS */;
-INSERT INTO `Institution` VALUES (1,'Illinois State University','Normal, Illinois',1857),(2,'Bradley University','Peoria, Illinois',1897),(3,'Eureka College','Eureka, Illinois',1855),(4,'Hedding College (defunct)','Abingdon, Illinois',1855),(5,'Illinois College','Jacksonville, Illinois',1829),(6,'Illinois Wesleyan University','Bloomington, Illinois',1850),(7,'Lincoln College, Illinois','Lincoln, Illinois',1865),(8,'Lombard College (defunct)','Galesburg, Illinois',1853),(9,'Millikin University','Decatur, Illinois',1901),(10,'Shurtleff College (defunct)','Alton, Illinois',1827);
-/*!40000 ALTER TABLE `Institution` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `Staff`
 --
 
-LOCK TABLES `Staff` WRITE;
-/*!40000 ALTER TABLE `Staff` DISABLE KEYS */;
-INSERT INTO `Staff` VALUES (1,'Bobby Jackson',24,'United States',1),(2,'Casey Jacobsen',23,'United States',2),(3,'Alexander Johnson',42,'United Kindom',3),(4,'Chris Johnson',34,'Canada',4),(5,'Bobby Jones',28,'United States',5),(6,'Dahntay Jones',30,'United Kindom',10),(7,'Damon Jones',41,'United Kindom',8);
-/*!40000 ALTER TABLE `Staff` ENABLE KEYS */;
-UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

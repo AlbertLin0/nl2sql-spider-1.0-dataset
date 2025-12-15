@@ -18,8 +18,17 @@
 --
 -- Table structure for table `MovieTheaters`
 --
-
 DROP TABLE IF EXISTS `MovieTheaters`;
+DROP TABLE IF EXISTS `Movies`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Movies` (
+  `Code` int NOT NULL AUTO_INCREMENT,
+  `Title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `Rating` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`Code`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `MovieTheaters` (
@@ -36,15 +45,6 @@ CREATE TABLE `MovieTheaters` (
 -- Table structure for table `Movies`
 --
 
-DROP TABLE IF EXISTS `Movies`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Movies` (
-  `Code` int NOT NULL AUTO_INCREMENT,
-  `Title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `Rating` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`Code`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

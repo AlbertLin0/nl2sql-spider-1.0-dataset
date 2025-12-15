@@ -39,11 +39,7 @@ UNLOCK TABLES;
 -- Dumping data for table `Renting_History`
 --
 
-LOCK TABLES `Renting_History` WRITE;
-/*!40000 ALTER TABLE `Renting_History` DISABLE KEYS */;
-INSERT INTO `Renting_History` VALUES (1,1,1,2,1),(2,2,2,5,10),(3,3,3,7,24),(4,4,4,3,24),(5,1,1,5,36),(6,2,2,1,24),(7,5,4,4,72);
-/*!40000 ALTER TABLE `Renting_History` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `Vehicles`
@@ -53,6 +49,11 @@ LOCK TABLES `Vehicles` WRITE;
 /*!40000 ALTER TABLE `Vehicles` DISABLE KEYS */;
 INSERT INTO `Vehicles` VALUES (1,'Chevrolet Spark EV',2014,'Electric',119,128,109,0.87,500,'See (1)'),(2,'Honda Fit EV',2013,'hybrid',118,132,105,0.87,500,'See (1)'),(3,'Fiat 500e',2013,'Electric',116,122,108,0.87,500,'See (1)'),(4,'Nissan Leaf',2013,'Electric',115,129,102,0.87,500,'See (1)'),(5,'Mitsubishi i',2012,'hybrid',112,126,99,0.9,550,'best selling of the year'),(6,'Ford Focus Electric',2012,'electric',105,110,99,0.96,600,'See (2)'),(7,'BMW ActiveE',2011,'Electric',102,107,96,0.99,600,'See (1)');
 /*!40000 ALTER TABLE `Vehicles` ENABLE KEYS */;
+UNLOCK TABLES;
+LOCK TABLES `Renting_History` WRITE;
+/*!40000 ALTER TABLE `Renting_History` DISABLE KEYS */;
+INSERT INTO `Renting_History` VALUES (1,1,1,2,1),(2,2,2,5,10),(3,3,3,7,24),(4,4,4,3,24),(5,1,1,5,36),(6,2,2,1,24),(7,5,4,4,72);
+/*!40000 ALTER TABLE `Renting_History` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

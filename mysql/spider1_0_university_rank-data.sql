@@ -28,7 +28,11 @@ UNLOCK TABLES;
 --
 -- Dumping data for table `Major_Ranking`
 --
-
+LOCK TABLES `University` WRITE;
+/*!40000 ALTER TABLE `University` DISABLE KEYS */;
+INSERT INTO `University` VALUES (1,'Augustana College','Rock Island','Illinois','Vikings','Private_Lutheran',2500,'CCIW'),(2,'Aurora University','Aurora','Illinois','Spartans','Private_Non-sectarian',4400,'Northern'),(3,'Beloit College','Beloit','Wisconsin','Buccaneers','Private_United Church of Christ',1000,'Midwest'),(4,'Benedictine University','Lisle','Illinois','Eagles','Private_Catholic',1300,'Northern'),(5,'Carroll University ','Waukesha','Wisconsin','Pioneers','Private_Presbyterian',2789,'Midwest'),(6,'Carthage College','Kenosha','Wisconsin','Red Men','Private_Lutheran',2188,'CCIW'),(7,'Concordia University Wisconsin','Mequon','Wisconsin','Falcons','Private_Lutheran',1608,'Northern'),(8,'Cornell College','Mount Vernon','Iowa','Rams','Private_United Methodist',1176,'Midwest'),(9,'Defiance College','Defiance','Ohio','Yellow Jackets','Private_United Church of Christ',1000,'HCAC'),(10,'Elmhurst College','Elmhurst','Illinois','Bluejays','Private_United Church of Christ',3400,'CCIW'),(11,'Fontbonne University','St. Louis','Missouri','Griffins','Private_Catholic',2924,'SLIAC'),(12,'Hanover College','Hanover','Indiana','Panthers','Private_Presbyterian',975,'HCAC'),(13,'Milwaukee School of Engineering','Milwaukee','Wisconsin','Raiders','Private_Non-sectarian',1929,'Northern');
+/*!40000 ALTER TABLE `University` ENABLE KEYS */;
+UNLOCK TABLES;
 LOCK TABLES `Major_Ranking` WRITE;
 /*!40000 ALTER TABLE `Major_Ranking` DISABLE KEYS */;
 INSERT INTO `Major_Ranking` VALUES (1,1,1),(1,3,1),(4,4,1),(1,2,3),(2,1,3),(2,1,4),(3,2,4),(2,1,5);
@@ -49,11 +53,7 @@ UNLOCK TABLES;
 -- Dumping data for table `University`
 --
 
-LOCK TABLES `University` WRITE;
-/*!40000 ALTER TABLE `University` DISABLE KEYS */;
-INSERT INTO `University` VALUES (1,'Augustana College','Rock Island','Illinois','Vikings','Private_Lutheran',2500,'CCIW'),(2,'Aurora University','Aurora','Illinois','Spartans','Private_Non-sectarian',4400,'Northern'),(3,'Beloit College','Beloit','Wisconsin','Buccaneers','Private_United Church of Christ',1000,'Midwest'),(4,'Benedictine University','Lisle','Illinois','Eagles','Private_Catholic',1300,'Northern'),(5,'Carroll University ','Waukesha','Wisconsin','Pioneers','Private_Presbyterian',2789,'Midwest'),(6,'Carthage College','Kenosha','Wisconsin','Red Men','Private_Lutheran',2188,'CCIW'),(7,'Concordia University Wisconsin','Mequon','Wisconsin','Falcons','Private_Lutheran',1608,'Northern'),(8,'Cornell College','Mount Vernon','Iowa','Rams','Private_United Methodist',1176,'Midwest'),(9,'Defiance College','Defiance','Ohio','Yellow Jackets','Private_United Church of Christ',1000,'HCAC'),(10,'Elmhurst College','Elmhurst','Illinois','Bluejays','Private_United Church of Christ',3400,'CCIW'),(11,'Fontbonne University','St. Louis','Missouri','Griffins','Private_Catholic',2924,'SLIAC'),(12,'Hanover College','Hanover','Indiana','Panthers','Private_Presbyterian',975,'HCAC'),(13,'Milwaukee School of Engineering','Milwaukee','Wisconsin','Raiders','Private_Non-sectarian',1929,'Northern');
-/*!40000 ALTER TABLE `University` ENABLE KEYS */;
-UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

@@ -18,7 +18,7 @@
 --
 -- Table structure for table `Club`
 --
-
+DROP TABLE IF EXISTS `Player`;
 DROP TABLE IF EXISTS `Club`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -37,7 +37,7 @@ CREATE TABLE `Club` (
 -- Table structure for table `Player`
 --
 
-DROP TABLE IF EXISTS `Player`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Player` (

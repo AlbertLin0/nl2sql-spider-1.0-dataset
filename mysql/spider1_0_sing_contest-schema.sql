@@ -18,7 +18,21 @@
 --
 -- Table structure for table `Participants`
 --
+--
+-- Table structure for table `Songs`
+--
 
+DROP TABLE IF EXISTS `Songs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Songs` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `language` text COLLATE utf8mb4_general_ci,
+  `original_artist` text COLLATE utf8mb4_general_ci,
+  `name` text COLLATE utf8mb4_general_ci,
+  `english_translation` text COLLATE utf8mb4_general_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 DROP TABLE IF EXISTS `Participants`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -50,21 +64,7 @@ CREATE TABLE `Performance_Score` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `Songs`
---
 
-DROP TABLE IF EXISTS `Songs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Songs` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `language` text COLLATE utf8mb4_general_ci,
-  `original_artist` text COLLATE utf8mb4_general_ci,
-  `name` text COLLATE utf8mb4_general_ci,
-  `english_translation` text COLLATE utf8mb4_general_ci,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -19,11 +19,6 @@
 -- Dumping data for table `Customer_Payment_Methods`
 --
 
-LOCK TABLES `Customer_Payment_Methods` WRITE;
-/*!40000 ALTER TABLE `Customer_Payment_Methods` DISABLE KEYS */;
-INSERT INTO `Customer_Payment_Methods` VALUES (15,'Direct Deb'),(1,'Direct Deb'),(10,'Direct Deb'),(13,'Credit Car'),(9,'Credit Car'),(8,'Credit Car'),(13,'Cheque'),(15,'Direct Deb'),(4,'Credit Car'),(7,'Credit Car'),(6,'Credit Car'),(14,'Cheque'),(3,'Credit Car'),(2,'Credit Car'),(14,'Direct Deb');
-/*!40000 ALTER TABLE `Customer_Payment_Methods` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Dumping data for table `Customers`
@@ -49,21 +44,6 @@ UNLOCK TABLES;
 -- Dumping data for table `Order_Items`
 --
 
-LOCK TABLES `Order_Items` WRITE;
-/*!40000 ALTER TABLE `Order_Items` DISABLE KEYS */;
-INSERT INTO `Order_Items` VALUES (1,4,8,'Delivered'),(2,3,4,'Out of Sto'),(3,2,7,'Delivered'),(4,1,10,'Out of Sto'),(5,1,3,'Delivered'),(6,1,18,'Delivered'),(7,5,3,'Delivered'),(8,4,19,'Out of Sto'),(9,5,18,'Out of Sto'),(10,3,6,'Delivered'),(11,3,1,'Out of Sto'),(12,5,10,'Out of Sto'),(13,4,17,'Delivered'),(14,1,19,'Out of Sto'),(15,3,20,'Out of Sto');
-/*!40000 ALTER TABLE `Order_Items` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `Orders`
---
-
-LOCK TABLES `Orders` WRITE;
-/*!40000 ALTER TABLE `Orders` DISABLE KEYS */;
-INSERT INTO `Orders` VALUES (1,5,'Cancelled','2017-09-17 16:13:07'),(2,13,'Part Compl','2017-10-14 12:05:48'),(3,13,'Cancelled','2017-09-10 08:27:04'),(4,11,'Delivered','2018-03-19 21:48:59'),(5,4,'Delivered','2017-09-17 07:48:34'),(6,8,'Delivered','2018-03-07 15:34:19'),(7,4,'Part Compl','2017-12-02 13:40:02'),(8,15,'Part Compl','2018-03-01 04:18:28'),(9,1,'Part Compl','2018-03-01 05:25:55'),(10,15,'Part Compl','2017-09-25 14:30:23'),(11,2,'Cancelled','2017-05-27 10:55:13'),(12,10,'Cancelled','2017-11-06 00:37:20'),(13,6,'Part Compl','2017-09-26 06:53:48'),(14,6,'Delivered','2017-05-02 00:04:13'),(15,1,'Cancelled','2017-11-23 04:27:11'),(16,10,'Cancelled','2017-07-19 12:45:12'),(17,6,'Delivered','2017-10-27 11:27:07'),(18,3,'Cancelled','2017-05-15 15:13:44'),(19,13,'Part Compl','2017-12-10 23:45:42'),(20,10,'Cancelled','2017-09-20 22:18:50');
-/*!40000 ALTER TABLE `Orders` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Dumping data for table `Products`
@@ -74,11 +54,38 @@ LOCK TABLES `Products` WRITE;
 INSERT INTO `Products` VALUES (1,8,'Dell monitor',795.6200,'Red','Medium','Latest model!'),(2,3,'Dell keyboard',104.0000,'Yellow','Medium','Keyboard for games!'),(3,1,'iPhone6s',560.9300,'Red','Small','Second hand!'),(4,6,'iWatch',369.1100,'Red','Medium','Designed for sports!'),(5,2,'Lenovo keyboard',382.6700,'Yellow','Medium','Work smartly!');
 /*!40000 ALTER TABLE `Products` ENABLE KEYS */;
 UNLOCK TABLES;
+LOCK TABLES `Customer_Payment_Methods` WRITE;
+/*!40000 ALTER TABLE `Customer_Payment_Methods` DISABLE KEYS */;
+INSERT INTO `Customer_Payment_Methods` VALUES (15,'Direct Deb'),(1,'Direct Deb'),(10,'Direct Deb'),(13,'Credit Car'),(9,'Credit Car'),(8,'Credit Car'),(13,'Cheque'),(15,'Direct Deb'),(4,'Credit Car'),(7,'Credit Car'),(6,'Credit Car'),(14,'Cheque'),(3,'Credit Car'),(2,'Credit Car'),(14,'Direct Deb');
+/*!40000 ALTER TABLE `Customer_Payment_Methods` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+LOCK TABLES `Orders` WRITE;
+/*!40000 ALTER TABLE `Orders` DISABLE KEYS */;
+INSERT INTO `Orders` VALUES (1,5,'Cancelled','2017-09-17 16:13:07'),(2,13,'Part Compl','2017-10-14 12:05:48'),(3,13,'Cancelled','2017-09-10 08:27:04'),(4,11,'Delivered','2018-03-19 21:48:59'),(5,4,'Delivered','2017-09-17 07:48:34'),(6,8,'Delivered','2018-03-07 15:34:19'),(7,4,'Part Compl','2017-12-02 13:40:02'),(8,15,'Part Compl','2018-03-01 04:18:28'),(9,1,'Part Compl','2018-03-01 05:25:55'),(10,15,'Part Compl','2017-09-25 14:30:23'),(11,2,'Cancelled','2017-05-27 10:55:13'),(12,10,'Cancelled','2017-11-06 00:37:20'),(13,6,'Part Compl','2017-09-26 06:53:48'),(14,6,'Delivered','2017-05-02 00:04:13'),(15,1,'Cancelled','2017-11-23 04:27:11'),(16,10,'Cancelled','2017-07-19 12:45:12'),(17,6,'Delivered','2017-10-27 11:27:07'),(18,3,'Cancelled','2017-05-15 15:13:44'),(19,13,'Part Compl','2017-12-10 23:45:42'),(20,10,'Cancelled','2017-09-20 22:18:50');
+/*!40000 ALTER TABLE `Orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `Order_Items` WRITE;
+/*!40000 ALTER TABLE `Order_Items` DISABLE KEYS */;
+INSERT INTO `Order_Items` VALUES (1,4,8,'Delivered'),(2,3,4,'Out of Sto'),(3,2,7,'Delivered'),(4,1,10,'Out of Sto'),(5,1,3,'Delivered'),(6,1,18,'Delivered'),(7,5,3,'Delivered'),(8,4,19,'Out of Sto'),(9,5,18,'Out of Sto'),(10,3,6,'Delivered'),(11,3,1,'Out of Sto'),(12,5,10,'Out of Sto'),(13,4,17,'Delivered'),(14,1,19,'Out of Sto'),(15,3,20,'Out of Sto');
+/*!40000 ALTER TABLE `Order_Items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `Orders`
+--
+
 
 --
 -- Dumping data for table `Shipment_Items`
 --
-
+LOCK TABLES `Shipments` WRITE;
+/*!40000 ALTER TABLE `Shipments` DISABLE KEYS */;
+INSERT INTO `Shipments` VALUES (1,7,5,'6900','2018-02-28 00:04:11'),(2,6,2,'3499','2018-03-07 01:57:14'),(3,9,4,'5617','2018-03-18 22:23:19'),(4,8,14,'6074','2018-03-11 23:48:37'),(5,12,9,'3848','2018-02-25 21:42:52'),(6,15,15,'3335','2018-03-15 01:10:18'),(7,14,3,'8731','2018-03-14 16:21:03'),(8,12,5,'6804','2018-03-12 01:44:44'),(9,18,7,'4377','2018-03-20 01:23:34'),(10,4,13,'8149','2018-03-16 03:30:05'),(11,6,2,'9190','2018-02-25 19:24:52'),(12,17,13,'9206','2018-03-20 21:01:04'),(13,7,9,'4276','2018-03-25 15:37:44'),(14,5,11,'9195','2018-03-10 22:34:34'),(15,6,11,'5506','2018-03-09 07:24:28');
+/*!40000 ALTER TABLE `Shipments` ENABLE KEYS */;
+UNLOCK TABLES;
 LOCK TABLES `Shipment_Items` WRITE;
 /*!40000 ALTER TABLE `Shipment_Items` DISABLE KEYS */;
 INSERT INTO `Shipment_Items` VALUES (4,4),(15,9),(6,14),(7,14),(8,14),(9,15);
@@ -89,11 +96,7 @@ UNLOCK TABLES;
 -- Dumping data for table `Shipments`
 --
 
-LOCK TABLES `Shipments` WRITE;
-/*!40000 ALTER TABLE `Shipments` DISABLE KEYS */;
-INSERT INTO `Shipments` VALUES (1,7,5,'6900','2018-02-28 00:04:11'),(2,6,2,'3499','2018-03-07 01:57:14'),(3,9,4,'5617','2018-03-18 22:23:19'),(4,8,14,'6074','2018-03-11 23:48:37'),(5,12,9,'3848','2018-02-25 21:42:52'),(6,15,15,'3335','2018-03-15 01:10:18'),(7,14,3,'8731','2018-03-14 16:21:03'),(8,12,5,'6804','2018-03-12 01:44:44'),(9,18,7,'4377','2018-03-20 01:23:34'),(10,4,13,'8149','2018-03-16 03:30:05'),(11,6,2,'9190','2018-02-25 19:24:52'),(12,17,13,'9206','2018-03-20 21:01:04'),(13,7,9,'4276','2018-03-25 15:37:44'),(14,5,11,'9195','2018-03-10 22:34:34'),(15,6,11,'5506','2018-03-09 07:24:28');
-/*!40000 ALTER TABLE `Shipments` ENABLE KEYS */;
-UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

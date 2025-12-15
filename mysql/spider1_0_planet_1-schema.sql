@@ -16,10 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `Planet`
+--
+DROP TABLE IF EXISTS `Package`;
+DROP TABLE IF EXISTS `Shipment`;
+DROP TABLE IF EXISTS `Has_Clearance`;
+DROP TABLE IF EXISTS `Employee`;
+DROP TABLE IF EXISTS `Client`;
+DROP TABLE IF EXISTS `Planet`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Planet` (
+  `PlanetID` int NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `Coordinates` double NOT NULL,
+  PRIMARY KEY (`PlanetID`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
 -- Table structure for table `Client`
 --
 
-DROP TABLE IF EXISTS `Client`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Client` (
@@ -33,7 +53,7 @@ CREATE TABLE `Client` (
 -- Table structure for table `Employee`
 --
 
-DROP TABLE IF EXISTS `Employee`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Employee` (
@@ -50,7 +70,7 @@ CREATE TABLE `Employee` (
 -- Table structure for table `Has_Clearance`
 --
 
-DROP TABLE IF EXISTS `Has_Clearance`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Has_Clearance` (
@@ -64,11 +84,34 @@ CREATE TABLE `Has_Clearance` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+--
+-- Table structure for table `Shipment`
+--
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Shipment` (
+  `ShipmentID` int NOT NULL AUTO_INCREMENT,
+  `Date` date DEFAULT NULL,
+  `Manager` int NOT NULL,
+  `Planet` int NOT NULL,
+  PRIMARY KEY (`ShipmentID`),
+  KEY `Shipment_FK_0_0` (`Planet`),
+  KEY `Shipment_FK_1_0` (`Manager`),
+  CONSTRAINT `Shipment_FK_0_0` FOREIGN KEY (`Planet`) REFERENCES `Planet` (`PlanetID`),
+  CONSTRAINT `Shipment_FK_1_0` FOREIGN KEY (`Manager`) REFERENCES `Employee` (`EmployeeID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+
 --
 -- Table structure for table `Package`
 --
 
-DROP TABLE IF EXISTS `Package`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Package` (
@@ -87,41 +130,6 @@ CREATE TABLE `Package` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `Planet`
---
-
-DROP TABLE IF EXISTS `Planet`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Planet` (
-  `PlanetID` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `Coordinates` double NOT NULL,
-  PRIMARY KEY (`PlanetID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Shipment`
---
-
-DROP TABLE IF EXISTS `Shipment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Shipment` (
-  `ShipmentID` int NOT NULL AUTO_INCREMENT,
-  `Date` date DEFAULT NULL,
-  `Manager` int NOT NULL,
-  `Planet` int NOT NULL,
-  PRIMARY KEY (`ShipmentID`),
-  KEY `Shipment_FK_0_0` (`Planet`),
-  KEY `Shipment_FK_1_0` (`Manager`),
-  CONSTRAINT `Shipment_FK_0_0` FOREIGN KEY (`Planet`) REFERENCES `Planet` (`PlanetID`),
-  CONSTRAINT `Shipment_FK_1_0` FOREIGN KEY (`Manager`) REFERENCES `Employee` (`EmployeeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

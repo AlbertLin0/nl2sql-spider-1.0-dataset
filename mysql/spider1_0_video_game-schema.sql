@@ -15,11 +15,47 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+--
+-- Table structure for table `Platform`
+--
+DROP TABLE IF EXISTS `Game_Player`;
+DROP TABLE IF EXISTS `Game`;
+DROP TABLE IF EXISTS `Player`;
+DROP TABLE IF EXISTS `Platform`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Platform` (
+  `Platform_ID` int NOT NULL AUTO_INCREMENT,
+  `Platform_name` text COLLATE utf8mb4_general_ci,
+  `Market_district` text COLLATE utf8mb4_general_ci,
+  `Download_rank` int DEFAULT NULL,
+  PRIMARY KEY (`Platform_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `Player`
+--
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Player` (
+  `Player_ID` int NOT NULL AUTO_INCREMENT,
+  `Rank_of_the_year` int DEFAULT NULL,
+  `Player_name` text COLLATE utf8mb4_general_ci,
+  `Position` text COLLATE utf8mb4_general_ci,
+  `College` text COLLATE utf8mb4_general_ci,
+  PRIMARY KEY (`Player_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2007 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 --
 -- Table structure for table `Game`
 --
 
-DROP TABLE IF EXISTS `Game`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Game` (
@@ -40,7 +76,7 @@ CREATE TABLE `Game` (
 -- Table structure for table `Game_Player`
 --
 
-DROP TABLE IF EXISTS `Game_Player`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Game_Player` (
@@ -53,40 +89,6 @@ CREATE TABLE `Game_Player` (
   CONSTRAINT `game_player_FK_1_0` FOREIGN KEY (`Player_ID`) REFERENCES `Player` (`Player_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Platform`
---
-
-DROP TABLE IF EXISTS `Platform`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Platform` (
-  `Platform_ID` int NOT NULL AUTO_INCREMENT,
-  `Platform_name` text COLLATE utf8mb4_general_ci,
-  `Market_district` text COLLATE utf8mb4_general_ci,
-  `Download_rank` int DEFAULT NULL,
-  PRIMARY KEY (`Platform_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Player`
---
-
-DROP TABLE IF EXISTS `Player`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Player` (
-  `Player_ID` int NOT NULL AUTO_INCREMENT,
-  `Rank_of_the_year` int DEFAULT NULL,
-  `Player_name` text COLLATE utf8mb4_general_ci,
-  `Position` text COLLATE utf8mb4_general_ci,
-  `College` text COLLATE utf8mb4_general_ci,
-  PRIMARY KEY (`Player_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2007 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

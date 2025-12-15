@@ -19,11 +19,7 @@
 -- Dumping data for table `Collection_Subset_Members`
 --
 
-LOCK TABLES `Collection_Subset_Members` WRITE;
-/*!40000 ALTER TABLE `Collection_Subset_Members` DISABLE KEYS */;
-INSERT INTO `Collection_Subset_Members` VALUES (6,6,717),(7,6,851),(7,7,851),(6,7,981);
-/*!40000 ALTER TABLE `Collection_Subset_Members` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `Collection_Subsets`
@@ -54,11 +50,19 @@ LOCK TABLES `Document_Objects` WRITE;
 INSERT INTO `Document_Objects` VALUES (5,5,'Ransom','Ransom Collection',NULL),(8,9,'Marlin','Marlin Collection',NULL),(9,9,'Braeden','Braeden Collection',NULL);
 /*!40000 ALTER TABLE `Document_Objects` ENABLE KEYS */;
 UNLOCK TABLES;
-
+LOCK TABLES `Collection_Subset_Members` WRITE;
+/*!40000 ALTER TABLE `Collection_Subset_Members` DISABLE KEYS */;
+INSERT INTO `Collection_Subset_Members` VALUES (6,6,717),(7,6,851),(7,7,851),(6,7,981);
+/*!40000 ALTER TABLE `Collection_Subset_Members` ENABLE KEYS */;
+UNLOCK TABLES;
 --
 -- Dumping data for table `Document_Subset_Members`
 --
-
+LOCK TABLES `Document_Subsets` WRITE;
+/*!40000 ALTER TABLE `Document_Subsets` DISABLE KEYS */;
+INSERT INTO `Document_Subsets` VALUES (171,'Best for 2000',''),(183,'Best for 2001',''),(216,'Best for 2002',''),(488,'Best for 2003',''),(535,'Best for 2004',''),(547,'Best for 2005',''),(640,'Best for 2006',''),(653,'Best for 2007','');
+/*!40000 ALTER TABLE `Document_Subsets` ENABLE KEYS */;
+UNLOCK TABLES;
 LOCK TABLES `Document_Subset_Members` WRITE;
 /*!40000 ALTER TABLE `Document_Subset_Members` DISABLE KEYS */;
 INSERT INTO `Document_Subset_Members` VALUES (9,5,171),(9,8,171),(5,8,183),(8,5,183),(8,9,216),(5,5,547),(5,9,653),(8,8,653);
@@ -69,11 +73,7 @@ UNLOCK TABLES;
 -- Dumping data for table `Document_Subsets`
 --
 
-LOCK TABLES `Document_Subsets` WRITE;
-/*!40000 ALTER TABLE `Document_Subsets` DISABLE KEYS */;
-INSERT INTO `Document_Subsets` VALUES (171,'Best for 2000',''),(183,'Best for 2001',''),(216,'Best for 2002',''),(488,'Best for 2003',''),(535,'Best for 2004',''),(547,'Best for 2005',''),(640,'Best for 2006',''),(653,'Best for 2007','');
-/*!40000 ALTER TABLE `Document_Subsets` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `Documents_In_Collections`

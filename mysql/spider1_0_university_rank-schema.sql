@@ -29,7 +29,20 @@ CREATE TABLE `Major` (
   PRIMARY KEY (`Major_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+DROP TABLE IF EXISTS `University`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `University` (
+  `University_ID` int NOT NULL AUTO_INCREMENT,
+  `University_Name` text COLLATE utf8mb4_general_ci,
+  `City` text COLLATE utf8mb4_general_ci,
+  `State` text COLLATE utf8mb4_general_ci,
+  `Team_Name` text COLLATE utf8mb4_general_ci,
+  `Affiliation` text COLLATE utf8mb4_general_ci,
+  `Enrollment` int DEFAULT NULL,
+  `Home_Conference` text COLLATE utf8mb4_general_ci,
+  PRIMARY KEY (`University_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Table structure for table `Major_Ranking`
 --
@@ -72,20 +85,7 @@ CREATE TABLE `Overall_Ranking` (
 -- Table structure for table `University`
 --
 
-DROP TABLE IF EXISTS `University`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `University` (
-  `University_ID` int NOT NULL AUTO_INCREMENT,
-  `University_Name` text COLLATE utf8mb4_general_ci,
-  `City` text COLLATE utf8mb4_general_ci,
-  `State` text COLLATE utf8mb4_general_ci,
-  `Team_Name` text COLLATE utf8mb4_general_ci,
-  `Affiliation` text COLLATE utf8mb4_general_ci,
-  `Enrollment` int DEFAULT NULL,
-  `Home_Conference` text COLLATE utf8mb4_general_ci,
-  PRIMARY KEY (`University_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -33,7 +33,17 @@ CREATE TABLE `Headphone` (
   PRIMARY KEY (`Headphone_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+DROP TABLE IF EXISTS `Store`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Store` (
+  `Store_ID` int NOT NULL AUTO_INCREMENT,
+  `Name` text COLLATE utf8mb4_general_ci,
+  `Neighborhood` text COLLATE utf8mb4_general_ci,
+  `Parking` text COLLATE utf8mb4_general_ci,
+  `Date_Opened` text COLLATE utf8mb4_general_ci,
+  PRIMARY KEY (`Store_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Table structure for table `Stock`
 --
@@ -56,17 +66,7 @@ CREATE TABLE `Stock` (
 -- Table structure for table `Store`
 --
 
-DROP TABLE IF EXISTS `Store`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Store` (
-  `Store_ID` int NOT NULL AUTO_INCREMENT,
-  `Name` text COLLATE utf8mb4_general_ci,
-  `Neighborhood` text COLLATE utf8mb4_general_ci,
-  `Parking` text COLLATE utf8mb4_general_ci,
-  `Date_Opened` text COLLATE utf8mb4_general_ci,
-  PRIMARY KEY (`Store_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

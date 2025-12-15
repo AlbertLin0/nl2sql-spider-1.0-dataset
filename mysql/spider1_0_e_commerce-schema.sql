@@ -22,12 +22,7 @@
 DROP TABLE IF EXISTS `Customer_Payment_Methods`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Customer_Payment_Methods` (
-  `customer_id` int NOT NULL,
-  `payment_method_code` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  KEY `Customer_Payment_Methods_FK_0_0` (`customer_id`),
-  CONSTRAINT `Customer_Payment_Methods_FK_0_0` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,12 +63,43 @@ CREATE TABLE `Invoices` (
   `invoice_date` datetime DEFAULT NULL,
   PRIMARY KEY (`invoice_number`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
+DROP TABLE IF EXISTS `Products`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Products` (
+  `product_id` int NOT NULL AUTO_INCREMENT,
+  `parent_product_id` int DEFAULT NULL,
+  `product_name` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `product_price` decimal(19,4) DEFAULT '0.0000',
+  `product_color` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `product_size` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `product_description` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `Customer_Payment_Methods` (
+  `customer_id` int NOT NULL,
+  `payment_method_code` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  KEY `Customer_Payment_Methods_FK_0_0` (`customer_id`),
+  CONSTRAINT `Customer_Payment_Methods_FK_0_0` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Table structure for table `Order_Items`
 --
 
+DROP TABLE IF EXISTS `Orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Orders` (
+  `order_id` int NOT NULL AUTO_INCREMENT,
+  `customer_id` int NOT NULL,
+  `order_status_code` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `date_order_placed` datetime NOT NULL,
+  PRIMARY KEY (`order_id`),
+  KEY `Orders_FK_0_0` (`customer_id`),
+  CONSTRAINT `Orders_FK_0_0` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`customer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 DROP TABLE IF EXISTS `Order_Items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -94,43 +120,33 @@ CREATE TABLE `Order_Items` (
 -- Table structure for table `Orders`
 --
 
-DROP TABLE IF EXISTS `Orders`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Orders` (
-  `order_id` int NOT NULL AUTO_INCREMENT,
-  `customer_id` int NOT NULL,
-  `order_status_code` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `date_order_placed` datetime NOT NULL,
-  PRIMARY KEY (`order_id`),
-  KEY `Orders_FK_0_0` (`customer_id`),
-  CONSTRAINT `Orders_FK_0_0` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Products`
 --
 
-DROP TABLE IF EXISTS `Products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Products` (
-  `product_id` int NOT NULL AUTO_INCREMENT,
-  `parent_product_id` int DEFAULT NULL,
-  `product_name` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `product_price` decimal(19,4) DEFAULT '0.0000',
-  `product_color` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `product_size` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `product_description` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Shipment_Items`
 --
-
+DROP TABLE IF EXISTS `Shipments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Shipments` (
+  `shipment_id` int NOT NULL AUTO_INCREMENT,
+  `order_id` int NOT NULL,
+  `invoice_number` int NOT NULL,
+  `shipment_tracking_number` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `shipment_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`shipment_id`),
+  KEY `Shipments_FK_0_0` (`order_id`),
+  KEY `Shipments_FK_1_0` (`invoice_number`),
+  CONSTRAINT `Shipments_FK_0_0` FOREIGN KEY (`order_id`) REFERENCES `Orders` (`order_id`),
+  CONSTRAINT `Shipments_FK_1_0` FOREIGN KEY (`invoice_number`) REFERENCES `Invoices` (`invoice_number`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 DROP TABLE IF EXISTS `Shipment_Items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -148,21 +164,7 @@ CREATE TABLE `Shipment_Items` (
 -- Table structure for table `Shipments`
 --
 
-DROP TABLE IF EXISTS `Shipments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Shipments` (
-  `shipment_id` int NOT NULL AUTO_INCREMENT,
-  `order_id` int NOT NULL,
-  `invoice_number` int NOT NULL,
-  `shipment_tracking_number` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `shipment_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`shipment_id`),
-  KEY `Shipments_FK_0_0` (`order_id`),
-  KEY `Shipments_FK_1_0` (`invoice_number`),
-  CONSTRAINT `Shipments_FK_0_0` FOREIGN KEY (`order_id`) REFERENCES `Orders` (`order_id`),
-  CONSTRAINT `Shipments_FK_1_0` FOREIGN KEY (`invoice_number`) REFERENCES `Invoices` (`invoice_number`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

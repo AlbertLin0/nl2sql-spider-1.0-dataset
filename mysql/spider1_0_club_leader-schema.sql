@@ -19,6 +19,7 @@
 -- Table structure for table `Club`
 --
 
+DROP TABLE IF EXISTS `Club_Leader`;
 DROP TABLE IF EXISTS `Club`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -29,24 +30,6 @@ CREATE TABLE `Club` (
   `Club_Name` text COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`Club_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Club_Leader`
---
-
-DROP TABLE IF EXISTS `Club_Leader`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Club_Leader` (
-  `Club_ID` int NOT NULL,
-  `Member_ID` int NOT NULL,
-  `Year_Join` text COLLATE utf8mb4_general_ci,
-  PRIMARY KEY (`Club_ID`,`Member_ID`),
-  KEY `club_leader_FK_0_0` (`Member_ID`),
-  CONSTRAINT `club_leader_FK_0_0` FOREIGN KEY (`Member_ID`) REFERENCES `Member` (`Member_ID`),
-  CONSTRAINT `club_leader_FK_1_0` FOREIGN KEY (`Club_ID`) REFERENCES `Club` (`Club_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +46,23 @@ CREATE TABLE `Member` (
   `Age` int DEFAULT NULL,
   PRIMARY KEY (`Member_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+--
+-- Table structure for table `Club_Leader`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Club_Leader` (
+  `Club_ID` int NOT NULL,
+  `Member_ID` int NOT NULL,
+  `Year_Join` text COLLATE utf8mb4_general_ci,
+  PRIMARY KEY (`Club_ID`,`Member_ID`),
+  KEY `club_leader_FK_0_0` (`Member_ID`),
+  CONSTRAINT `club_leader_FK_0_0` FOREIGN KEY (`Member_ID`) REFERENCES `Member` (`Member_ID`),
+  CONSTRAINT `club_leader_FK_1_0` FOREIGN KEY (`Club_ID`) REFERENCES `Club` (`Club_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

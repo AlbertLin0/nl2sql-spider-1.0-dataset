@@ -28,7 +28,11 @@ UNLOCK TABLES;
 --
 -- Dumping data for table `Club_Leader`
 --
-
+LOCK TABLES `Member` WRITE;
+/*!40000 ALTER TABLE `Member` DISABLE KEYS */;
+INSERT INTO `Member` VALUES (1984,'Wally Lewis','Australia',23),(1985,'Brett Kenny','Australia',19),(1986,'Garry Jack','Australia',18),(1987,'Hugh McGahan Peter Sterling','New Zealand Australia',24),(1988,'Ellery Hanley','England',19),(1989,'Mal Meninga','Australia',22),(1990,'Garry Schofield','England',21),(1991,'No award given','No award given',20),(1999,'Andrew Johns','Australia',19),(2000,'Brad Fittler','Australia',17);
+/*!40000 ALTER TABLE `Member` ENABLE KEYS */;
+UNLOCK TABLES;
 LOCK TABLES `Club_Leader` WRITE;
 /*!40000 ALTER TABLE `Club_Leader` DISABLE KEYS */;
 INSERT INTO `Club_Leader` VALUES (1,1988,'2018'),(4,1990,'2018'),(6,1985,'2015'),(6,1999,'2018'),(8,1984,'2017'),(10,1991,'2017');
@@ -39,11 +43,7 @@ UNLOCK TABLES;
 -- Dumping data for table `Member`
 --
 
-LOCK TABLES `Member` WRITE;
-/*!40000 ALTER TABLE `Member` DISABLE KEYS */;
-INSERT INTO `Member` VALUES (1984,'Wally Lewis','Australia',23),(1985,'Brett Kenny','Australia',19),(1986,'Garry Jack','Australia',18),(1987,'Hugh McGahan Peter Sterling','New Zealand Australia',24),(1988,'Ellery Hanley','England',19),(1989,'Mal Meninga','Australia',22),(1990,'Garry Schofield','England',21),(1991,'No award given','No award given',20),(1999,'Andrew Johns','Australia',19),(2000,'Brad Fittler','Australia',17);
-/*!40000 ALTER TABLE `Member` ENABLE KEYS */;
-UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

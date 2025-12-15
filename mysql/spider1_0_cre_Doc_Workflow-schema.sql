@@ -18,7 +18,9 @@
 --
 -- Table structure for table `Authors`
 --
-
+DROP TABLE IF EXISTS `Staff_In_Processes`;
+DROP TABLE IF EXISTS `Documents_Processes`;
+DROP TABLE IF EXISTS `Documents`;
 DROP TABLE IF EXISTS `Authors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -44,48 +46,6 @@ CREATE TABLE `Business_Processes` (
   `other_details` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`process_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Documents`
---
-
-DROP TABLE IF EXISTS `Documents`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Documents` (
-  `document_id` int NOT NULL AUTO_INCREMENT,
-  `author_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `document_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `document_description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `other_details` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`document_id`),
-  KEY `Documents_FK_0_0` (`author_name`),
-  CONSTRAINT `Documents_FK_0_0` FOREIGN KEY (`author_name`) REFERENCES `Authors` (`author_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=948678384 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Documents_Processes`
---
-
-DROP TABLE IF EXISTS `Documents_Processes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Documents_Processes` (
-  `document_id` int NOT NULL,
-  `process_id` int NOT NULL,
-  `process_outcome_code` char(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `process_status_code` char(15) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`document_id`,`process_id`),
-  KEY `Documents_Processes_FK_0_0` (`process_status_code`),
-  KEY `Documents_Processes_FK_1_0` (`process_outcome_code`),
-  KEY `Documents_Processes_FK_2_0` (`process_id`),
-  CONSTRAINT `Documents_Processes_FK_0_0` FOREIGN KEY (`process_status_code`) REFERENCES `Process_Status` (`process_status_code`),
-  CONSTRAINT `Documents_Processes_FK_1_0` FOREIGN KEY (`process_outcome_code`) REFERENCES `Process_Outcomes` (`process_outcome_code`),
-  CONSTRAINT `Documents_Processes_FK_2_0` FOREIGN KEY (`process_id`) REFERENCES `Business_Processes` (`process_id`),
-  CONSTRAINT `Documents_Processes_FK_3_0` FOREIGN KEY (`document_id`) REFERENCES `Documents` (`document_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,11 +89,6 @@ CREATE TABLE `Ref_Staff_Roles` (
   PRIMARY KEY (`staff_role_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Staff`
---
-
 DROP TABLE IF EXISTS `Staff`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -144,11 +99,60 @@ CREATE TABLE `Staff` (
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+--
+-- Table structure for table `Documents`
+--
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Documents` (
+  `document_id` int NOT NULL AUTO_INCREMENT,
+  `author_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `document_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `document_description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `other_details` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`document_id`),
+  KEY `Documents_FK_0_0` (`author_name`),
+  CONSTRAINT `Documents_FK_0_0` FOREIGN KEY (`author_name`) REFERENCES `Authors` (`author_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=948678384 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `Documents_Processes`
+--
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Documents_Processes` (
+  `document_id` int NOT NULL,
+  `process_id` int NOT NULL,
+  `process_outcome_code` char(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `process_status_code` char(15) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`document_id`,`process_id`),
+  KEY `Documents_Processes_FK_0_0` (`process_status_code`),
+  KEY `Documents_Processes_FK_1_0` (`process_outcome_code`),
+  KEY `Documents_Processes_FK_2_0` (`process_id`),
+  CONSTRAINT `Documents_Processes_FK_0_0` FOREIGN KEY (`process_status_code`) REFERENCES `Process_Status` (`process_status_code`),
+  CONSTRAINT `Documents_Processes_FK_1_0` FOREIGN KEY (`process_outcome_code`) REFERENCES `Process_Outcomes` (`process_outcome_code`),
+  CONSTRAINT `Documents_Processes_FK_2_0` FOREIGN KEY (`process_id`) REFERENCES `Business_Processes` (`process_id`),
+  CONSTRAINT `Documents_Processes_FK_3_0` FOREIGN KEY (`document_id`) REFERENCES `Documents` (`document_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `Staff`
+--
+
+
 --
 -- Table structure for table `Staff_In_Processes`
 --
 
-DROP TABLE IF EXISTS `Staff_In_Processes`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Staff_In_Processes` (

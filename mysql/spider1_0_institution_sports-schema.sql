@@ -14,24 +14,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `Championship`
---
-
-DROP TABLE IF EXISTS `Championship`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Championship` (
-  `Institution_ID` int NOT NULL AUTO_INCREMENT,
-  `Nickname` text COLLATE utf8mb4_general_ci,
-  `Joined` double DEFAULT NULL,
-  `Number_of_Championships` double DEFAULT NULL,
-  PRIMARY KEY (`Institution_ID`),
-  CONSTRAINT `Championship_FK_0_0` FOREIGN KEY (`Institution_ID`) REFERENCES `Institution` (`Institution_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 --
 -- Table structure for table `Institution`
 --
@@ -53,6 +35,24 @@ CREATE TABLE `Institution` (
   `Capacity` double DEFAULT NULL,
   PRIMARY KEY (`Institution_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+--
+-- Table structure for table `Championship`
+--
+
+DROP TABLE IF EXISTS `Championship`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Championship` (
+  `Institution_ID` int NOT NULL AUTO_INCREMENT,
+  `Nickname` text COLLATE utf8mb4_general_ci,
+  `Joined` double DEFAULT NULL,
+  `Number_of_Championships` double DEFAULT NULL,
+  PRIMARY KEY (`Institution_ID`),
+  CONSTRAINT `Championship_FK_0_0` FOREIGN KEY (`Institution_ID`) REFERENCES `Institution` (`Institution_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

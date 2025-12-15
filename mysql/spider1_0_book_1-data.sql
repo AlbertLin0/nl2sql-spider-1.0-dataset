@@ -24,7 +24,11 @@ LOCK TABLES `Author` WRITE;
 INSERT INTO `Author` VALUES ('1','Jane Austin'),('2','George Orwell'),('3','J.R.R Tolkien'),('4','Antoine de Saint-Exupy'),('5','Bram Stoker'),('6','Plato'),('7','Vladimir Nabokov');
 /*!40000 ALTER TABLE `Author` ENABLE KEYS */;
 UNLOCK TABLES;
-
+LOCK TABLES `Book` WRITE;
+/*!40000 ALTER TABLE `Book` DISABLE KEYS */;
+INSERT INTO `Book` VALUES ('0482174555366','Lolita','1998','4','9.45'),('0853477468299','Dracula','2011','9.45','13.45'),('1235271378662','1984','2009','12.5','19.25'),('1243415243666','The Republic','1997','10.45','15.75'),('4554672899910','The Hobbit','2002','19','33.15'),('5463467723747','The Little Prince','2000','49','73.45'),('8233771378567','Pride and Prejudice','2008','9.45','13.45');
+/*!40000 ALTER TABLE `Book` ENABLE KEYS */;
+UNLOCK TABLES;
 --
 -- Dumping data for table `Author_Book`
 --
@@ -39,12 +43,17 @@ UNLOCK TABLES;
 -- Dumping data for table `Book`
 --
 
-LOCK TABLES `Book` WRITE;
-/*!40000 ALTER TABLE `Book` DISABLE KEYS */;
-INSERT INTO `Book` VALUES ('0482174555366','Lolita','1998','4','9.45'),('0853477468299','Dracula','2011','9.45','13.45'),('1235271378662','1984','2009','12.5','19.25'),('1243415243666','The Republic','1997','10.45','15.75'),('4554672899910','The Hobbit','2002','19','33.15'),('5463467723747','The Little Prince','2000','49','73.45'),('8233771378567','Pride and Prejudice','2008','9.45','13.45');
-/*!40000 ALTER TABLE `Book` ENABLE KEYS */;
+LOCK TABLES `Client` WRITE;
+/*!40000 ALTER TABLE `Client` DISABLE KEYS */;
+INSERT INTO `Client` VALUES ('0000001','James Smith','Picadilly 2','1234567890123456'),('0000002','Laura Jones','Holland Park 13','1234567756953456'),('0000003','Peter Doe','High Street 42','1237596390123456'),('0000004','Rose Johnson','Notting Hill 46','4896357890123456'),('0000005','Joseph Clinton','Leicester Square 1','1224569890123456'),('0000006','Betty Fraser','Whitehall 32','2444889890123456');
+/*!40000 ALTER TABLE `Client` ENABLE KEYS */;
 UNLOCK TABLES;
 
+LOCK TABLES `Orders` WRITE;
+/*!40000 ALTER TABLE `Orders` DISABLE KEYS */;
+INSERT INTO `Orders` VALUES ('0000001P','0000001',NULL,NULL),('0000002P','0000001',NULL,NULL),('0000003P','0000002',NULL,NULL),('0000004P','0000004',NULL,NULL),('0000005P','0000005',NULL,NULL),('0000006P','0000003',NULL,NULL);
+/*!40000 ALTER TABLE `Orders` ENABLE KEYS */;
+UNLOCK TABLES;
 --
 -- Dumping data for table `Books_Order`
 --
@@ -59,21 +68,12 @@ UNLOCK TABLES;
 -- Dumping data for table `Client`
 --
 
-LOCK TABLES `Client` WRITE;
-/*!40000 ALTER TABLE `Client` DISABLE KEYS */;
-INSERT INTO `Client` VALUES ('0000001','James Smith','Picadilly 2','1234567890123456'),('0000002','Laura Jones','Holland Park 13','1234567756953456'),('0000003','Peter Doe','High Street 42','1237596390123456'),('0000004','Rose Johnson','Notting Hill 46','4896357890123456'),('0000005','Joseph Clinton','Leicester Square 1','1224569890123456'),('0000006','Betty Fraser','Whitehall 32','2444889890123456');
-/*!40000 ALTER TABLE `Client` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Dumping data for table `Orders`
 --
 
-LOCK TABLES `Orders` WRITE;
-/*!40000 ALTER TABLE `Orders` DISABLE KEYS */;
-INSERT INTO `Orders` VALUES ('0000001P','0000001',NULL,NULL),('0000002P','0000001',NULL,NULL),('0000003P','0000002',NULL,NULL),('0000004P','0000004',NULL,NULL),('0000005P','0000005',NULL,NULL),('0000006P','0000003',NULL,NULL);
-/*!40000 ALTER TABLE `Orders` ENABLE KEYS */;
-UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

@@ -19,6 +19,11 @@
 -- Dumping data for table `Author`
 --
 
+LOCK TABLES `Press` WRITE;
+/*!40000 ALTER TABLE `Press` DISABLE KEYS */;
+INSERT INTO `Press` VALUES (1,'Accor',0.65,6.02),(2,'Air Liquide',4.08,29.49),(3,'Alstom',0.96,9.4),(4,'ArcelorMittal',1.69,15.4),(5,'STMicroelectronics',0.54,5.25),(6,'Technip',1.18,9.24),(7,'Total',11.96,86.94),(8,'Unibail-Rodamco',2.31,16.8),(9,'Vallourec',0.58,4.56),(10,'Veolia Environnement',0.44,5.01);
+/*!40000 ALTER TABLE `Press` ENABLE KEYS */;
+UNLOCK TABLES;
 LOCK TABLES `Author` WRITE;
 /*!40000 ALTER TABLE `Author` DISABLE KEYS */;
 INSERT INTO `Author` VALUES (1,'Derrick Kosinski',45,'Male'),(2,'Evelyn Smith',32,'Female'),(3,'Johnny Devenanzio',54,'Male'),(4,'Kenny Santucci',21,'Male'),(5,'Jenn Grijalva',19,'Female'),(6,'Paula Meronek',23,'Female'),(7,'Robin Hibbard',52,'Female');
@@ -39,11 +44,6 @@ UNLOCK TABLES;
 -- Dumping data for table `Press`
 --
 
-LOCK TABLES `Press` WRITE;
-/*!40000 ALTER TABLE `Press` DISABLE KEYS */;
-INSERT INTO `Press` VALUES (1,'Accor',0.65,6.02),(2,'Air Liquide',4.08,29.49),(3,'Alstom',0.96,9.4),(4,'ArcelorMittal',1.69,15.4),(5,'STMicroelectronics',0.54,5.25),(6,'Technip',1.18,9.24),(7,'Total',11.96,86.94),(8,'Unibail-Rodamco',2.31,16.8),(9,'Vallourec',0.58,4.56),(10,'Veolia Environnement',0.44,5.01);
-/*!40000 ALTER TABLE `Press` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

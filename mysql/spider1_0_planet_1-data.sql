@@ -18,7 +18,11 @@
 --
 -- Dumping data for table `Client`
 --
-
+LOCK TABLES `Planet` WRITE;
+/*!40000 ALTER TABLE `Planet` DISABLE KEYS */;
+INSERT INTO `Planet` VALUES (1,'Omicron Persei 8',89475345.3545),(2,'Decapod X',65498463216.3466),(3,'Mars',32435021.65468),(4,'Omega III',98432121.5464),(5,'Tarantulon VI',849842198.354654),(6,'Cannibalon',654321987.21654),(7,'DogDoo VII',65498721354.688),(8,'Nintenduu 64',6543219894.1654),(9,'Amazonia',65432135979.6547);
+/*!40000 ALTER TABLE `Planet` ENABLE KEYS */;
+UNLOCK TABLES;
 LOCK TABLES `Client` WRITE;
 /*!40000 ALTER TABLE `Client` DISABLE KEYS */;
 INSERT INTO `Client` VALUES (1,'Zapp Brannigan'),(2,'Al Gore\'s Head'),(3,'Barbados Slim'),(4,'Ogden Wernstrom'),(5,'Leo Wong'),(6,'Lrrr'),(7,'John Zoidberg'),(8,'John Zoidfarb'),(9,'Morbo'),(10,'Judge John Whitey'),(11,'Calculon');
@@ -48,7 +52,11 @@ UNLOCK TABLES;
 --
 -- Dumping data for table `Package`
 --
-
+LOCK TABLES `Shipment` WRITE;
+/*!40000 ALTER TABLE `Shipment` DISABLE KEYS */;
+INSERT INTO `Shipment` VALUES (1,'3004-05-11',1,1),(2,'3004-05-11',1,2),(3,NULL,2,3),(4,NULL,2,4),(5,NULL,7,5);
+/*!40000 ALTER TABLE `Shipment` ENABLE KEYS */;
+UNLOCK TABLES;
 LOCK TABLES `Package` WRITE;
 /*!40000 ALTER TABLE `Package` DISABLE KEYS */;
 INSERT INTO `Package` VALUES (1,1,'Undeclared',1.5,1,2),(2,1,'Undeclared',10,2,3),(2,2,'A bucket of krill',2,8,7),(3,1,'Undeclared',15,3,4),(3,2,'Undeclared',3,5,1),(3,3,'Undeclared',7,2,3),(4,1,'Undeclared',5,4,5),(4,2,'Undeclared',27,1,2),(5,1,'Undeclared',100,5,1);
@@ -59,21 +67,13 @@ UNLOCK TABLES;
 -- Dumping data for table `Planet`
 --
 
-LOCK TABLES `Planet` WRITE;
-/*!40000 ALTER TABLE `Planet` DISABLE KEYS */;
-INSERT INTO `Planet` VALUES (1,'Omicron Persei 8',89475345.3545),(2,'Decapod X',65498463216.3466),(3,'Mars',32435021.65468),(4,'Omega III',98432121.5464),(5,'Tarantulon VI',849842198.354654),(6,'Cannibalon',654321987.21654),(7,'DogDoo VII',65498721354.688),(8,'Nintenduu 64',6543219894.1654),(9,'Amazonia',65432135979.6547);
-/*!40000 ALTER TABLE `Planet` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `Shipment`
 --
 
-LOCK TABLES `Shipment` WRITE;
-/*!40000 ALTER TABLE `Shipment` DISABLE KEYS */;
-INSERT INTO `Shipment` VALUES (1,'3004-05-11',1,1),(2,'3004-05-11',1,2),(3,NULL,2,3),(4,NULL,2,4),(5,NULL,7,5);
-/*!40000 ALTER TABLE `Shipment` ENABLE KEYS */;
-UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

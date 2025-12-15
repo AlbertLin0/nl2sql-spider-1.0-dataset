@@ -18,21 +18,12 @@
 --
 -- Table structure for table `Collection_Subset_Members`
 --
-
+DROP TABLE IF EXISTS `Documents_In_Collections`;
+DROP TABLE IF EXISTS `Document_Subset_Members`;
 DROP TABLE IF EXISTS `Collection_Subset_Members`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Collection_Subset_Members` (
-  `Collection_ID` int NOT NULL,
-  `Related_Collection_ID` int NOT NULL,
-  `Collection_Subset_ID` int NOT NULL,
-  PRIMARY KEY (`Collection_ID`,`Related_Collection_ID`),
-  KEY `Collection_Subset_Members_FK_0_0` (`Collection_Subset_ID`),
-  KEY `Collection_Subset_Members_FK_1_0` (`Related_Collection_ID`),
-  CONSTRAINT `Collection_Subset_Members_FK_0_0` FOREIGN KEY (`Collection_Subset_ID`) REFERENCES `Collection_Subsets` (`Collection_Subset_ID`),
-  CONSTRAINT `Collection_Subset_Members_FK_1_0` FOREIGN KEY (`Related_Collection_ID`) REFERENCES `Collections` (`Collection_ID`),
-  CONSTRAINT `Collection_Subset_Members_FK_2_0` FOREIGN KEY (`Collection_ID`) REFERENCES `Collections` (`Collection_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,20 +78,10 @@ CREATE TABLE `Document_Objects` (
 -- Table structure for table `Document_Subset_Members`
 --
 
-DROP TABLE IF EXISTS `Document_Subset_Members`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Document_Subset_Members` (
-  `Document_Object_ID` int NOT NULL,
-  `Related_Document_Object_ID` int NOT NULL,
-  `Document_Subset_ID` int NOT NULL,
-  PRIMARY KEY (`Document_Object_ID`,`Related_Document_Object_ID`),
-  KEY `Document_Subset_Members_FK_0_0` (`Document_Subset_ID`),
-  KEY `Document_Subset_Members_FK_1_0` (`Related_Document_Object_ID`),
-  CONSTRAINT `Document_Subset_Members_FK_0_0` FOREIGN KEY (`Document_Subset_ID`) REFERENCES `Document_Subsets` (`Document_Subset_ID`),
-  CONSTRAINT `Document_Subset_Members_FK_1_0` FOREIGN KEY (`Related_Document_Object_ID`) REFERENCES `Document_Objects` (`Document_Object_ID`),
-  CONSTRAINT `Document_Subset_Members_FK_2_0` FOREIGN KEY (`Document_Object_ID`) REFERENCES `Document_Objects` (`Document_Object_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,12 +98,32 @@ CREATE TABLE `Document_Subsets` (
   PRIMARY KEY (`Document_Subset_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=654 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+CREATE TABLE `Collection_Subset_Members` (
+  `Collection_ID` int NOT NULL,
+  `Related_Collection_ID` int NOT NULL,
+  `Collection_Subset_ID` int NOT NULL,
+  PRIMARY KEY (`Collection_ID`,`Related_Collection_ID`),
+  KEY `Collection_Subset_Members_FK_0_0` (`Collection_Subset_ID`),
+  KEY `Collection_Subset_Members_FK_1_0` (`Related_Collection_ID`),
+  CONSTRAINT `Collection_Subset_Members_FK_0_0` FOREIGN KEY (`Collection_Subset_ID`) REFERENCES `Collection_Subsets` (`Collection_Subset_ID`),
+  CONSTRAINT `Collection_Subset_Members_FK_1_0` FOREIGN KEY (`Related_Collection_ID`) REFERENCES `Collections` (`Collection_ID`),
+  CONSTRAINT `Collection_Subset_Members_FK_2_0` FOREIGN KEY (`Collection_ID`) REFERENCES `Collections` (`Collection_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Table structure for table `Documents_In_Collections`
 --
+CREATE TABLE `Document_Subset_Members` (
+  `Document_Object_ID` int NOT NULL,
+  `Related_Document_Object_ID` int NOT NULL,
+  `Document_Subset_ID` int NOT NULL,
+  PRIMARY KEY (`Document_Object_ID`,`Related_Document_Object_ID`),
+  KEY `Document_Subset_Members_FK_0_0` (`Document_Subset_ID`),
+  KEY `Document_Subset_Members_FK_1_0` (`Related_Document_Object_ID`),
+  CONSTRAINT `Document_Subset_Members_FK_0_0` FOREIGN KEY (`Document_Subset_ID`) REFERENCES `Document_Subsets` (`Document_Subset_ID`),
+  CONSTRAINT `Document_Subset_Members_FK_1_0` FOREIGN KEY (`Related_Document_Object_ID`) REFERENCES `Document_Objects` (`Document_Object_ID`),
+  CONSTRAINT `Document_Subset_Members_FK_2_0` FOREIGN KEY (`Document_Object_ID`) REFERENCES `Document_Objects` (`Document_Object_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-DROP TABLE IF EXISTS `Documents_In_Collections`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Documents_In_Collections` (

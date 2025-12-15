@@ -29,11 +29,7 @@ UNLOCK TABLES;
 -- Dumping data for table `Reserves`
 --
 
-LOCK TABLES `Reserves` WRITE;
-/*!40000 ALTER TABLE `Reserves` DISABLE KEYS */;
-INSERT INTO `Reserves` VALUES (1,102,'9/12'),(2,102,'9/13'),(2,103,'9/14'),(2,103,'9/15');
-/*!40000 ALTER TABLE `Reserves` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `Sailors`
@@ -43,6 +39,11 @@ LOCK TABLES `Sailors` WRITE;
 /*!40000 ALTER TABLE `Sailors` DISABLE KEYS */;
 INSERT INTO `Sailors` VALUES (1,'Eugene',7,22),(2,'Luis',2,39),(3,'Ken',8,27);
 /*!40000 ALTER TABLE `Sailors` ENABLE KEYS */;
+UNLOCK TABLES;
+LOCK TABLES `Reserves` WRITE;
+/*!40000 ALTER TABLE `Reserves` DISABLE KEYS */;
+INSERT INTO `Reserves` VALUES (1,102,'9/12'),(2,102,'9/13'),(2,103,'9/14'),(2,103,'9/15');
+/*!40000 ALTER TABLE `Reserves` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

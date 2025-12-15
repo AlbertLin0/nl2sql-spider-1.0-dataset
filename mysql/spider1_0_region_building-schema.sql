@@ -14,12 +14,23 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
+DROP TABLE IF EXISTS `Building`;
+DROP TABLE IF EXISTS `Region`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Region` (
+  `Region_ID` int NOT NULL AUTO_INCREMENT,
+  `Name` text COLLATE utf8mb4_general_ci,
+  `Capital` text COLLATE utf8mb4_general_ci,
+  `Area` int DEFAULT NULL,
+  `Population` int DEFAULT NULL,
+  PRIMARY KEY (`Region_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Table structure for table `Building`
 --
 
-DROP TABLE IF EXISTS `Building`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Building` (
@@ -39,17 +50,7 @@ CREATE TABLE `Building` (
 -- Table structure for table `Region`
 --
 
-DROP TABLE IF EXISTS `Region`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Region` (
-  `Region_ID` int NOT NULL AUTO_INCREMENT,
-  `Name` text COLLATE utf8mb4_general_ci,
-  `Capital` text COLLATE utf8mb4_general_ci,
-  `Area` int DEFAULT NULL,
-  `Population` int DEFAULT NULL,
-  PRIMARY KEY (`Region_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

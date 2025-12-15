@@ -50,23 +50,7 @@ CREATE TABLE `Discount` (
 -- Table structure for table `Renting_History`
 --
 
-DROP TABLE IF EXISTS `Renting_History`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Renting_History` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `customer_id` int DEFAULT NULL,
-  `discount_id` int DEFAULT NULL,
-  `vehicles_id` int DEFAULT NULL,
-  `total_hours` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `Renting_history_FK_0_0` (`discount_id`),
-  KEY `Renting_history_FK_1_0` (`vehicles_id`),
-  KEY `Renting_history_FK_2_0` (`customer_id`),
-  CONSTRAINT `Renting_history_FK_0_0` FOREIGN KEY (`discount_id`) REFERENCES `Discount` (`id`),
-  CONSTRAINT `Renting_history_FK_1_0` FOREIGN KEY (`vehicles_id`) REFERENCES `Vehicles` (`id`),
-  CONSTRAINT `Renting_history_FK_2_0` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,6 +72,24 @@ CREATE TABLE `Vehicles` (
   `Annual_fuel_cost` double DEFAULT NULL,
   `Notes` text COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+DROP TABLE IF EXISTS `Renting_History`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Renting_History` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `customer_id` int DEFAULT NULL,
+  `discount_id` int DEFAULT NULL,
+  `vehicles_id` int DEFAULT NULL,
+  `total_hours` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Renting_history_FK_0_0` (`discount_id`),
+  KEY `Renting_history_FK_1_0` (`vehicles_id`),
+  KEY `Renting_history_FK_2_0` (`customer_id`),
+  CONSTRAINT `Renting_history_FK_0_0` FOREIGN KEY (`discount_id`) REFERENCES `Discount` (`id`),
+  CONSTRAINT `Renting_history_FK_1_0` FOREIGN KEY (`vehicles_id`) REFERENCES `Vehicles` (`id`),
+  CONSTRAINT `Renting_history_FK_2_0` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

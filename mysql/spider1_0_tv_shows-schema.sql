@@ -18,7 +18,8 @@
 --
 -- Table structure for table `City_Channel`
 --
-
+DROP TABLE IF EXISTS `City_Channel_Tv_Show`;
+DROP TABLE IF EXISTS `City_Channel_Radio`;
 DROP TABLE IF EXISTS `City_Channel`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -31,44 +32,6 @@ CREATE TABLE `City_Channel` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `City_Channel_Radio`
---
-
-DROP TABLE IF EXISTS `City_Channel_Radio`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `City_Channel_Radio` (
-  `City_channel_ID` int NOT NULL,
-  `Radio_ID` int NOT NULL,
-  `Is_online` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`City_channel_ID`,`Radio_ID`),
-  KEY `city_channel_radio_FK_0_0` (`Radio_ID`),
-  CONSTRAINT `city_channel_radio_FK_0_0` FOREIGN KEY (`Radio_ID`) REFERENCES `Radio` (`Radio_ID`),
-  CONSTRAINT `city_channel_radio_FK_1_0` FOREIGN KEY (`City_channel_ID`) REFERENCES `City_Channel` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `City_Channel_Tv_Show`
---
-
-DROP TABLE IF EXISTS `City_Channel_Tv_Show`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `City_Channel_Tv_Show` (
-  `City_channel_ID` int NOT NULL,
-  `tv_show_ID` int NOT NULL,
-  `Is_online` tinyint(1) DEFAULT NULL,
-  `Is_free` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`City_channel_ID`,`tv_show_ID`),
-  KEY `city_channel_tv_show_FK_0_0` (`tv_show_ID`),
-  CONSTRAINT `city_channel_tv_show_FK_0_0` FOREIGN KEY (`tv_show_ID`) REFERENCES `Tv_Show` (`tv_show_ID`),
-  CONSTRAINT `city_channel_tv_show_FK_1_0` FOREIGN KEY (`City_channel_ID`) REFERENCES `City_Channel` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 --
 -- Table structure for table `Radio`
 --
@@ -103,6 +66,44 @@ CREATE TABLE `Tv_Show` (
   `Original_Airdate` text COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`tv_show_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+--
+-- Table structure for table `City_Channel_Radio`
+--
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `City_Channel_Radio` (
+  `City_channel_ID` int NOT NULL,
+  `Radio_ID` int NOT NULL,
+  `Is_online` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`City_channel_ID`,`Radio_ID`),
+  KEY `city_channel_radio_FK_0_0` (`Radio_ID`),
+  CONSTRAINT `city_channel_radio_FK_0_0` FOREIGN KEY (`Radio_ID`) REFERENCES `Radio` (`Radio_ID`),
+  CONSTRAINT `city_channel_radio_FK_1_0` FOREIGN KEY (`City_channel_ID`) REFERENCES `City_Channel` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `City_Channel_Tv_Show`
+--
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `City_Channel_Tv_Show` (
+  `City_channel_ID` int NOT NULL,
+  `tv_show_ID` int NOT NULL,
+  `Is_online` tinyint(1) DEFAULT NULL,
+  `Is_free` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`City_channel_ID`,`tv_show_ID`),
+  KEY `city_channel_tv_show_FK_0_0` (`tv_show_ID`),
+  CONSTRAINT `city_channel_tv_show_FK_0_0` FOREIGN KEY (`tv_show_ID`) REFERENCES `Tv_Show` (`tv_show_ID`),
+  CONSTRAINT `city_channel_tv_show_FK_1_0` FOREIGN KEY (`City_channel_ID`) REFERENCES `City_Channel` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

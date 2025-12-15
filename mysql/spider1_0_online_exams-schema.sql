@@ -18,7 +18,12 @@
 --
 -- Table structure for table `Exams`
 --
-
+DROP TABLE IF EXISTS `Student_Answers`;
+DROP TABLE IF EXISTS `Students`;
+DROP TABLE IF EXISTS `Student_Assessments`;
+DROP TABLE IF EXISTS `Valid_Answers`;
+DROP TABLE IF EXISTS `Questions_In_Exams`;
+DROP TABLE IF EXISTS `Questions`;
 DROP TABLE IF EXISTS `Exams`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -35,7 +40,7 @@ CREATE TABLE `Exams` (
 -- Table structure for table `Questions`
 --
 
-DROP TABLE IF EXISTS `Questions`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Questions` (
@@ -50,7 +55,7 @@ CREATE TABLE `Questions` (
 -- Table structure for table `Questions_In_Exams`
 --
 
-DROP TABLE IF EXISTS `Questions_In_Exams`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Questions_In_Exams` (
@@ -63,11 +68,68 @@ CREATE TABLE `Questions_In_Exams` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+
+--
+-- Table structure for table `Valid_Answers`
+--
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Valid_Answers` (
+  `Valid_Answer_ID` int NOT NULL AUTO_INCREMENT,
+  `Question_ID` int NOT NULL,
+  `Valid_Answer_Text` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`Valid_Answer_ID`),
+  KEY `Valid_Answers_FK_0_0` (`Question_ID`),
+  CONSTRAINT `Valid_Answers_FK_0_0` FOREIGN KEY (`Question_ID`) REFERENCES `Questions` (`Question_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Table structure for table `Student_Assessments`
+--
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Student_Assessments` (
+  `Student_Answer_ID` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `Valid_Answer_ID` int NOT NULL,
+  `Student_Answer_Text` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Satisfactory_YN` char(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Assessment` varchar(40) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`Student_Answer_ID`),
+  KEY `Student_Assessments_FK_0_0` (`Valid_Answer_ID`),
+  CONSTRAINT `Student_Assessments_FK_0_0` FOREIGN KEY (`Valid_Answer_ID`) REFERENCES `Valid_Answers` (`Valid_Answer_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `Students`
+--
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Students` (
+  `Student_ID` int NOT NULL AUTO_INCREMENT,
+  `First_Name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Middle_Name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Last_Name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Gender_MFU` char(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Student_Address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Email_Adress` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Cell_Mobile_Phone` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Home_Phone` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`Student_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 --
 -- Table structure for table `Student_Answers`
 --
 
-DROP TABLE IF EXISTS `Student_Answers`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Student_Answers` (
@@ -87,61 +149,6 @@ CREATE TABLE `Student_Answers` (
 ) ENGINE=InnoDB AUTO_INCREMENT=779 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `Student_Assessments`
---
-
-DROP TABLE IF EXISTS `Student_Assessments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Student_Assessments` (
-  `Student_Answer_ID` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `Valid_Answer_ID` int NOT NULL,
-  `Student_Answer_Text` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Satisfactory_YN` char(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Assessment` varchar(40) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`Student_Answer_ID`),
-  KEY `Student_Assessments_FK_0_0` (`Valid_Answer_ID`),
-  CONSTRAINT `Student_Assessments_FK_0_0` FOREIGN KEY (`Valid_Answer_ID`) REFERENCES `Valid_Answers` (`Valid_Answer_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Students`
---
-
-DROP TABLE IF EXISTS `Students`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Students` (
-  `Student_ID` int NOT NULL AUTO_INCREMENT,
-  `First_Name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Middle_Name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Last_Name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Gender_MFU` char(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Student_Address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Email_Adress` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Cell_Mobile_Phone` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Home_Phone` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`Student_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `Valid_Answers`
---
-
-DROP TABLE IF EXISTS `Valid_Answers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Valid_Answers` (
-  `Valid_Answer_ID` int NOT NULL AUTO_INCREMENT,
-  `Question_ID` int NOT NULL,
-  `Valid_Answer_Text` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`Valid_Answer_ID`),
-  KEY `Valid_Answers_FK_0_0` (`Question_ID`),
-  CONSTRAINT `Valid_Answers_FK_0_0` FOREIGN KEY (`Question_ID`) REFERENCES `Questions` (`Question_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

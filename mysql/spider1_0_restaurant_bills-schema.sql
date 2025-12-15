@@ -18,7 +18,7 @@
 --
 -- Table structure for table `Branch`
 --
-
+DROP TABLE IF EXISTS `Customer_Order`;
 DROP TABLE IF EXISTS `Branch`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -52,7 +52,7 @@ CREATE TABLE `Customer` (
 -- Table structure for table `Customer_Order`
 --
 
-DROP TABLE IF EXISTS `Customer_Order`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Customer_Order` (

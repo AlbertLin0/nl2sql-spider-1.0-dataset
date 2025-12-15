@@ -18,7 +18,7 @@
 --
 -- Table structure for table `Countries`
 --
-
+DROP TABLE IF EXISTS `Official_Languages`;
 DROP TABLE IF EXISTS `Countries`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -53,7 +53,7 @@ CREATE TABLE `Languages` (
 -- Table structure for table `Official_Languages`
 --
 
-DROP TABLE IF EXISTS `Official_Languages`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Official_Languages` (

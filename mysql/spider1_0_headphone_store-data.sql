@@ -29,11 +29,6 @@ UNLOCK TABLES;
 -- Dumping data for table `Stock`
 --
 
-LOCK TABLES `Stock` WRITE;
-/*!40000 ALTER TABLE `Stock` DISABLE KEYS */;
-INSERT INTO `Stock` VALUES (1,6,100),(2,2,170),(2,3,300),(3,1,34),(3,4,14),(4,3,50),(5,5,100),(7,4,116);
-/*!40000 ALTER TABLE `Stock` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Dumping data for table `Store`
@@ -44,6 +39,12 @@ LOCK TABLES `Store` WRITE;
 INSERT INTO `Store` VALUES (1,'Laurel Canyon','Valley Village','None','October 29, 2005'),(2,'Woodman','Valley Glen','None','October 29, 2005'),(3,'Sepulveda','Van Nuys','1,205 Spaces','October 29, 2005'),(4,'Woodley','Van Nuys','None','October 29, 2005'),(5,'Reseda','Tarzana','522 Spaces','October 29, 2005'),(6,'Tampa','Tarzana','n/a','October 29, 2005'),(7,'Pierce College','Winnetka','373 Spaces','October 29, 2005'),(8,'Sherman Way','Canoga Park','Park & Ride Lot','June 30, 2012'),(9,'Roscoe','Canoga Park','None','June 30, 2012');
 /*!40000 ALTER TABLE `Store` ENABLE KEYS */;
 UNLOCK TABLES;
+LOCK TABLES `Stock` WRITE;
+/*!40000 ALTER TABLE `Stock` DISABLE KEYS */;
+INSERT INTO `Stock` VALUES (1,6,100),(2,2,170),(2,3,300),(3,1,34),(3,4,14),(4,3,50),(5,5,100),(7,4,116);
+/*!40000 ALTER TABLE `Stock` ENABLE KEYS */;
+UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

@@ -18,7 +18,11 @@
 --
 -- Table structure for table `Agencies`
 --
-
+DROP TABLE IF EXISTS `Staff_In_Meetings`;
+DROP TABLE IF EXISTS `Payments`;
+DROP TABLE IF EXISTS `Meetings`;
+DROP TABLE IF EXISTS `Invoices`;
+DROP TABLE IF EXISTS `Clients`;
 DROP TABLE IF EXISTS `Agencies`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -33,7 +37,7 @@ CREATE TABLE `Agencies` (
 -- Table structure for table `Clients`
 --
 
-DROP TABLE IF EXISTS `Clients`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Clients` (
@@ -51,7 +55,7 @@ CREATE TABLE `Clients` (
 -- Table structure for table `Invoices`
 --
 
-DROP TABLE IF EXISTS `Invoices`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Invoices` (
@@ -69,7 +73,7 @@ CREATE TABLE `Invoices` (
 -- Table structure for table `Meetings`
 --
 
-DROP TABLE IF EXISTS `Meetings`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Meetings` (
@@ -92,7 +96,7 @@ CREATE TABLE `Meetings` (
 -- Table structure for table `Payments`
 --
 
-DROP TABLE IF EXISTS `Payments`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Payments` (

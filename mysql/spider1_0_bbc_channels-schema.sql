@@ -18,7 +18,8 @@
 --
 -- Table structure for table `Channel`
 --
-
+DROP TABLE IF EXISTS `Program`;
+DROP TABLE IF EXISTS `Director_Admin`;
 DROP TABLE IF EXISTS `Channel`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -51,7 +52,7 @@ CREATE TABLE `Director` (
 -- Table structure for table `Director_Admin`
 --
 
-DROP TABLE IF EXISTS `Director_Admin`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Director_Admin` (
@@ -69,12 +70,12 @@ CREATE TABLE `Director_Admin` (
 -- Table structure for table `Program`
 --
 
-DROP TABLE IF EXISTS `Program`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Program` (
   `Program_ID` int NOT NULL AUTO_INCREMENT,
-  `Start_Year` double DEFAULT NULL,
+  `Start_Year` int DEFAULT NULL,
   `Title` text COLLATE utf8mb4_general_ci,
   `Director_ID` int DEFAULT NULL,
   `Channel_ID` int DEFAULT NULL,

@@ -18,7 +18,8 @@
 --
 -- Table structure for table `Artists`
 --
-
+DROP TABLE IF EXISTS `Sculptures`;
+DROP TABLE IF EXISTS `Paintings`;
 DROP TABLE IF EXISTS `Artists`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -36,7 +37,7 @@ CREATE TABLE `Artists` (
 -- Table structure for table `Paintings`
 --
 
-DROP TABLE IF EXISTS `Paintings`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Paintings` (
@@ -59,7 +60,7 @@ CREATE TABLE `Paintings` (
 -- Table structure for table `Sculptures`
 --
 
-DROP TABLE IF EXISTS `Sculptures`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Sculptures` (

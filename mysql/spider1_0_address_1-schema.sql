@@ -18,7 +18,8 @@
 --
 -- Table structure for table `City`
 --
-
+DROP TABLE IF EXISTS `Student`;
+DROP TABLE IF EXISTS `Direct_Distance`;
 DROP TABLE IF EXISTS `City`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -27,8 +28,8 @@ CREATE TABLE `City` (
   `city_name` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '城市名称',
   `state` varchar(2) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '所在省份/州',
   `country` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '城市所在国家',
-  `latitude` float DEFAULT NULL COMMENT '纬度',
-  `longitude` float DEFAULT NULL COMMENT '经度',
+  `latitude` DECIMAL(10,3) DEFAULT NULL COMMENT '纬度',
+  `longitude` DECIMAL(10,3) DEFAULT NULL COMMENT '经度',
   PRIMARY KEY (`city_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

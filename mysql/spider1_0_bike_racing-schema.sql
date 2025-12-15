@@ -18,7 +18,7 @@
 --
 -- Table structure for table `Bike`
 --
-
+DROP TABLE IF EXISTS `Cyclists_Own_Bikes`;
 DROP TABLE IF EXISTS `Bike`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -26,7 +26,7 @@ CREATE TABLE `Bike` (
   `id` int NOT NULL AUTO_INCREMENT,
   `product_name` text COLLATE utf8mb4_general_ci,
   `weight` int DEFAULT NULL,
-  `price` double DEFAULT NULL,
+  `price` int DEFAULT NULL,
   `material` text COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -44,7 +44,7 @@ CREATE TABLE `Cyclist` (
   `heat` int DEFAULT NULL,
   `name` text COLLATE utf8mb4_general_ci,
   `nation` text COLLATE utf8mb4_general_ci,
-  `result` double DEFAULT NULL,
+  `result` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -53,7 +53,7 @@ CREATE TABLE `Cyclist` (
 -- Table structure for table `Cyclists_Own_Bikes`
 --
 
-DROP TABLE IF EXISTS `Cyclists_Own_Bikes`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Cyclists_Own_Bikes` (
