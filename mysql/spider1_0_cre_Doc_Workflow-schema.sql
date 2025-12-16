@@ -108,7 +108,7 @@ CREATE TABLE `Staff` (
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Documents` (
-  `document_id` int NOT NULL AUTO_INCREMENT,
+  `document_id` int NOT NULL,
   `author_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `document_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `document_description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
@@ -116,7 +116,7 @@ CREATE TABLE `Documents` (
   PRIMARY KEY (`document_id`),
   KEY `Documents_FK_0_0` (`author_name`),
   CONSTRAINT `Documents_FK_0_0` FOREIGN KEY (`author_name`) REFERENCES `Authors` (`author_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=948678384 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

@@ -42,8 +42,8 @@ CREATE TABLE `Book` (
   `ISBN` char(15) COLLATE utf8mb4_general_ci NOT NULL,
   `Title` varchar(60) COLLATE utf8mb4_general_ci NOT NULL,
   `Author` char(4) COLLATE utf8mb4_general_ci NOT NULL,
-  `PurchasePrice` varchar(255) COLLATE utf8mb4_general_ci DEFAULT '0',
-  `SalePrice` varchar(255) COLLATE utf8mb4_general_ci DEFAULT '0',
+  `PurchasePrice` decimal(10,2) DEFAULT '0.00',
+  `SalePrice` decimal(10,2) DEFAULT '0.00',
   PRIMARY KEY (`ISBN`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
