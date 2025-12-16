@@ -11,7 +11,7 @@ reference: https://yale-lily.github.io/spider
 `gold_sql_test.json` record the gold sql for the Mysql.
 
 You can use the test.json and gold_sql_test.json to test Execution Accuracy. 
-
+   
 :thinking: Attention: 
 
 From my opinion, there are some questions.
@@ -29,3 +29,15 @@ According following opinion:
    - For example, the gold sql may return `123.456`，while the generated sql may return `123.456000`.
 
 So, using hash function just get the bottom line of the execution accuracy.
+
+# Postgres
+
+I have compared the difference between the return results of Mysql and Postgres. There are some differences we don't consider:
+
+1. The order of results returned by Postgres is not guaranteed unless an `ORDER BY` clause is specified.
+
+2. The type `Decimal`, `DateTime` may have precision errors.
+   - For example, the gold sql may return `123.456`，while the generated sql may return `123.456000`.
+
+3. The `limit` clause may return different results because of the different sort logic between Mysql and Postgres.
+   - For example, `GROUP BY COUNT(xx) ASC LIMIT 1` may return `a` or `b`, because they have the same `xx` count.
