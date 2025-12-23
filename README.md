@@ -5,7 +5,7 @@ This project delivers Spider 1.0 multi-dialect testing; however, its scope is cu
 
 reference: https://yale-lily.github.io/spider
 
-
+x
 # Mysql 
 `test.json` record the query and the database name.
 `gold_sql_test.json` record the gold sql for the Mysql.

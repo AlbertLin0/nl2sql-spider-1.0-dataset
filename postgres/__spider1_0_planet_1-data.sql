@@ -13,7 +13,7 @@ INSERT INTO "has_clearance" VALUES (1,1,2),(1,2,3),(2,3,2),(2,4,4),(3,5,2),(3,6,
 
 
 
-INSERT INTO "shipment" VALUES (1,'3004-05-11',1,1),(2,'3004-05-11',1,2),(3,NULL,2,3),(4,NULL,2,4),(5,NULL,7,5);
+INSERT INTO "shipment" VALUES (1,'3004-05-11',1,1),(2,'3004-05-11',1,2),(3,3004-05-12,2,3),(4,3004-05-12,2,4),(5,3004-05-12,7,5);
 
 
 INSERT INTO "package" VALUES (1,1,'Undeclared',1.5,1,2),(2,1,'Undeclared',10,2,3),(2,2,'A bucket of krill',2,8,7),(3,1,'Undeclared',15,3,4),(3,2,'Undeclared',3,5,1),(3,3,'Undeclared',7,2,3),(4,1,'Undeclared',5,4,5),(4,2,'Undeclared',27,1,2),(5,1,'Undeclared',100,5,1);
